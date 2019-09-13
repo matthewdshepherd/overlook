@@ -78,6 +78,8 @@ describe('Hotel', () => {
     expect(hotel.getRevenueFromRoomservice(1570946400000)).to.equal(8.84)
   })
 
+  it.only('Should be able find revenue from room service and booked rooms for a specific day', () => {
+    expect(hotel.getTotalRevenue(1570946400000)).to.equal(6472)
+  })
 
-  
 })
