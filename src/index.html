@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Webpack Starter Kit</title>
+    <title>Stay More</title>
   </head>
   <body>
-    <h1>Webpack Starter Kit</h1>
-<p>Now lets see what happens!</p>
-<!-- is more working?? -->
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    <header class="nav">
+      <h1 class="nav__h1--title">StayMore</h1>
+      <section class="nav__section">
+        <div class="nav__section__div tab color--tab dashboard">
+          <img class="nav__section__div--img" src="images/dashboard.svg" alt="dashboard icon">
+          <p class="nav__section__div--tab">DASHBOARD</p>
+        </div>
+        <div class="nav__section__div tab customer">
+          <img class="nav__section__div--img" src="images/customer.svg" alt="customer icon">
+           <p class="nav__section__div--tab">CUSTOMER</p>
+        </div>
+        <div class="nav__section__div tab color--tab orders">
+          <img class="nav__section__div--img" src="images/orders.svg" alt="orders icon">
+          <p class="nav__section__div--tab">ORDERS</p>
+        </div>
+        <div class="nav__section__div tab room">
+          <img class="nav__section__div--img" src="images/room.svg" alt="room icon">
+          <p class="nav__section__div--tab">ROOM</p>
+        </div>
+      </section>
+      <section class="nav__section user color--tab">
+        <div class="nav__section__div user--info">
+          <img class="nav__section__div--img user--image" src="images/Luna-StayMore.png" alt="user image">
+          <p class="nav__section__div--img user--name">Luna Langlois</p>
+        </div>
+        <div class="nav__section__div--logout">
+          <p class="nav__section__div__p--logout>LOG OUT">LOG OUT</p>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="customer">
+        <input class="customer--search__input" type="text" placeholder="SEARCH GUESTS">
+        <input class="customer--create__buttton" type="button" value=" + Add Customer">
+      </section>
+    </main>
+
 
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>

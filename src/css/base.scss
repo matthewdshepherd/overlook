@@ -4,3 +4,78 @@ $primary-background: pink;
 body {
   background-color: $primary-background;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1F2B3C;
+  color: #ffffff;
+
+}
+.nav__section {
+  display: flex;
+}
+
+.nav__section__div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav__h1--title {
+  margin-left: 20px;
+}
+
+.tab {
+  margin: 0 15px;
+  width: 100px;
+}
+
+.color--tab {
+  background-color: #28364C;
+}
+
+.nav__section__div--img {
+  width: 40px;
+  margin: 15px 0 0 0;
+}
+
+.user {
+  width: 10%;
+  min-width: 300px;
+  max-width: 500px;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.user--image {
+  height: 20px;
+}
+
+.user--info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+.user--name{
+  font-size: 25px;
+}
+
+.customer {
+  width: 100%;
+  display: flex;
+}
+
+.customer--search__input {
+  width: 80%;
+  height: 40px;
+  border: none;
+}
+
+.customer--create__buttton {
+  width: 20%;
+  // height: 20px;
+  border: none;
+}
