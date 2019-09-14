@@ -14,11 +14,14 @@ import './images/orders.svg'
 import './images/room.svg'
 import './images/dashboard.svg'
 import './images/Luna-StayMore.png'
+import RoomService from './roomService';
+import Hotel from './Hotel';
+import Bookings from './Booking';
 
 const customersDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users").then(response => response.json());
 const bookingsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings").then(response => response.json());
 const roomsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms").then(response => response.json());
-const roomServiceDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices").then(response => response.json());
+const roomServiceDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomService").then(response => response.json());
 
 const todaysDate = dateToday()
 
@@ -29,15 +32,17 @@ Promise.all([customersDataFetch, bookingsDataFetch, roomsDataFetch, roomServiceD
     allHotelData.customers = data[0].users;
     allHotelData.bookings = data[1].bookings;
     allHotelData.rooms = data[2].rooms;
-    allHotelData.roomService = data[3].roomServices;
-    return allData;
+    allHotelData.roomService = data[3].roomService;
+    return allHotelData;
   })
-  .then(allData => console.log(allData))
-  then.()
+  .then(allHotelData => console.log(allHotelData))
+  .then(allHotelData => new Hotel(allHotelData.customers))
+  .then(allHotelData => new RoomService(allHotelData.roomService))
+  .then(allHotelData => new Bookings(allHotelData.bookings))
 
   const dateToday = () => {
     const newDateFormat = new Date(Date.now())
-    return newDateFormat.getTime();
+    return newDateFormat.getTime(allHotelData.roomService);
   }
 
 console.log('This is the JavaScript entry file - your code begins here.');
