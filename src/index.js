@@ -20,16 +20,24 @@ const bookingsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1
 const roomsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms").then(response => response.json());
 const roomServiceDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomServices").then(response => response.json());
 
-let allData = { users: [], bookings: [], rooms: [], roomService: [] }
+const todaysDate = dateToday()
+
+let allHotelData = { customers: [], bookings: [], rooms: [], roomService: [] }
 
 Promise.all([customersDataFetch, bookingsDataFetch, roomsDataFetch, roomServiceDataFetch])
   .then( data => {
-    allData.users = data[0].users;
-    allData.bookings = data[1].bookings;
-    allData.rooms = data[2].rooms;
-    allData.roomService = data[3].roomServices;
+    allHotelData.customers = data[0].users;
+    allHotelData.bookings = data[1].bookings;
+    allHotelData.rooms = data[2].rooms;
+    allHotelData.roomService = data[3].roomServices;
     return allData;
   })
   .then(allData => console.log(allData))
+  then.()
+
+  const dateToday = () => {
+    const newDateFormat = new Date(Date.now())
+    return newDateFormat.getTime();
+  }
 
 console.log('This is the JavaScript entry file - your code begins here.');
