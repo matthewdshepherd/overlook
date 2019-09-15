@@ -6,27 +6,32 @@
   <body>
     <header class="nav">
       <h1 class="nav__h1--title">StayMore</h1>
-      <section class="nav__section">
-        <div class="nav__section__div--tab tab color--tab dashboard">
+      <section class="nav__section tabs-nav">
+        <div class="nav__section__div--tab color--tab dashboard-tab">
           <img class="nav__section__div--img" src="images/dashboard.svg" alt="dashboard icon">
-          <p class="nav__section__div--tab--title">DASHBOARD</p>
+          <a class="nav__section__div--tab--title" href="#dashboard">DASHBOARD</a>
+          <!-- <p class="nav__section__div--tab--title">DASHBOARD</p> -->
         </div>
-        <div class="nav__section__div--tab tab customer">
+        <div class="nav__section__div--tab customer-tab">
           <img class="nav__section__div--img" src="images/customer.svg" alt="customer icon">
-           <p class="nav__section__div--tab--title">CUSTOMER</p>
+          <a class="nav__section__div--tab--title" href="#customer">CUSTOMER</a>
+           <!-- <p class="nav__section__div--tab--title">CUSTOMER</p> -->
         </div>
-        <div class="nav__section__div--tab tab color--tab orders">
+        <div class="nav__section__div--tab color--tab orders-tab">
           <img class="nav__section__div--img" src="images/orders.svg" alt="orders icon">
-          <p class="nav__section__div--tab--title">ORDERS</p>
+          <a class="nav__section__div--tab--title" href="#orders">ORDERS</a>
+          <!-- <p class="nav__section__div--tab--title">ORDERS</p> -->
         </div>
-        <div class="nav__section__div--tab tab room">
+        <div class="nav__section__div--tab room-tab">
           <img class="nav__section__div--img" src="images/room.svg" alt="room icon">
-          <p class="nav__section__div--tab--title">ROOM</p>
+          <a class="nav__section__div--tab--title" href="#bookings">BOOKINGS</a>
+          <!-- <p class="nav__section__div--tab--title">ROOM</p> -->
         </div>
       </section>
       <section class="nav__section user color--tab">
         <div class="nav__section__div user--info">
           <img class="nav__section__div--img user--image" src="images/Luna-StayMore.png" alt="user image">
+          
           <p class="nav__section__div--img user--name">Luna Langlois</p>
         </div>
         <div class="nav__section__div--logout">
@@ -39,6 +44,23 @@
         <input class="customer--search__input" type="text" placeholder="SEARCH GUESTS">
         <input class="customer--create__buttton" type="button" value=" + Add Customer">
       </section>
+      <div class="tabs-stage">
+        <div id="dashboard">
+          <p class="dashboard__text">All the Dashboard.</p>
+          <p class="dashboard__text">Total Rooms Available for Today:<span class="dashboard__text--roomsavil"></span></p>
+          <p class="dashboard__text">Percentage of Rooms Booked for Today:<span class="dashboard__text--percentbooked"></span></p>
+          <p class="dashboard__text">Total Revenue for Today:<span class="dashboard__text--totalrevenue"></span></p>
+        </div>
+        <div id="customer">
+          <p>All the Customers.</p>
+        </div>
+        <div id="orders">
+          <p>All the Orders.</p>
+        </div>
+        <div id="bookings">
+          <p>Here is where we would display the bookings!!</p>
+        </div>
+      </div>
     </main>
 
 

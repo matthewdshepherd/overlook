@@ -1,9 +1,13 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+// $primary-background: pink;
 
-body {
-  background-color: $primary-background;
-}
+// * {
+//   border: 1px solid red;
+// }
+
+// body {
+//   background-color: $primary-background;
+// }
 
 .nav {
   display: flex;
@@ -20,12 +24,40 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 15px;
-  width: 100px;
+  padding: 0 5px;
+  width: 125px;
+}
+
+.tabs-nav div:first-child a {
+  border-right: 0;
+  border-top-left-radius: 6px;
+}
+
+.tabs-nav div:last-child a {
+  border-top-right-radius: 6px;
+}
+
+.tab-active a {
+  background: #fff;
+  border-bottom-color: transparent;
+  color: #2db34a;
+  cursor: default;
+}
+
+.tabs-stage {
+  // border: 1px solid #cecfd5;
+  // border-radius: 0 0 6px 6px;
+  border-top: 0;
+  clear: both;
+  padding: 24px 30px;
+  position: relative;
+  top: -1px;
 }
 
 .nav__h1--title {
   margin-left: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .color--tab {
@@ -35,6 +67,15 @@ body {
 .nav__section__div--img {
   width: 40px;
   margin: 15px 0 0 0;
+}
+
+.nav__section__div--tab--title {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav__section__div--tab:hover {
+  color: #0EBB97;
 }
 
 .user {
@@ -58,6 +99,8 @@ body {
 
 .user--name{
   font-size: 25px;
+  width: 100%;
+  padding: 0 8px;
 }
 
 .customer {
@@ -75,4 +118,9 @@ body {
   width: 20%;
   // height: 20px;
   border: none;
+}
+
+.nav__section__div--logout {
+  display: flex;
+  align-items: center;
 }

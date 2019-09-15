@@ -64,6 +64,11 @@ describe('Bookings', () => {
     expect(bookings.getRevenueFromBookedRooms(1570946400000, hotel.rooms)).to.equal(6463)
   })
 
+  it.only('should be able to create an object with dates and amount of bookings', () => {
+    console.log(bookings.doSomeThings())
+
+  })
+
   it('Should be able to return an object of dates and amount of bookings that day has', () => {
     // console.log(bookings.getBookingDates())
     expect(bookings.getBookingDates()).to.eql({

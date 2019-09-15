@@ -23,7 +23,7 @@ const bookingsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1
 const roomsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms").then(response => response.json());
 const roomServiceDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/room-services/roomService").then(response => response.json());
 
-const todaysDate = dateToday()
+// const todaysDate = dateToday()
 
 let allHotelData = { customers: [], bookings: [], rooms: [], roomService: [] }
 
@@ -36,7 +36,7 @@ Promise.all([customersDataFetch, bookingsDataFetch, roomsDataFetch, roomServiceD
     return allHotelData;
   })
   .then(allHotelData => console.log(allHotelData))
-  .then(allHotelData => new Hotel(allHotelData.customers))
+  .then(allHotelData => new Hotel(allHotelData))
   .then(allHotelData => new RoomService(allHotelData.roomService))
   .then(allHotelData => new Bookings(allHotelData.bookings))
 
@@ -44,5 +44,21 @@ Promise.all([customersDataFetch, bookingsDataFetch, roomsDataFetch, roomServiceD
     const newDateFormat = new Date(Date.now())
     return newDateFormat.getTime(allHotelData.roomService);
   }
+
+
+
+// Show the first tab by default
+$('.tabs-stage div').hide();
+$('.tabs-stage div:first').show();
+$('.tabs-nav div:first').addClass('tab-active');
+
+// Change tab class and display content
+$('.tabs-nav a').on('click', function (event) {
+  event.preventDefault();
+  $('.tabs-nav div').removeClass('tab-active');
+  $(this).parent().addClass('tab-active');
+  $('.tabs-stage div').hide();
+  $($(this).attr('href')).show();
+});
 
 console.log('This is the JavaScript entry file - your code begins here.');

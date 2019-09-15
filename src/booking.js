@@ -54,7 +54,6 @@ class Bookings {
     const dayWithleastBookings = bookingsDays.filter(day => bookingDates[day] === leastBookings)
     return {dayWithMostBookings, dayWithleastBookings}
   }
-
 }
 
   export default Bookings
