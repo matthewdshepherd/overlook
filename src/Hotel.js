@@ -1,11 +1,13 @@
 // import domUpdates from "./domUpdates";
+import Bookings from './Booking';
+import RoomService from './roomService';
 
 class Hotel {
   constructor(allHotelData) {
     this.customers = allHotelData.customers;
-    // this.bookings = this.changeTimeFormat(allHotelData.bookings);
+    this.bookings = new Bookings(allHotelData.bookings);
     this.rooms = allHotelData.rooms;
-    // this.roomService = new RoomService(allHotelData.roomService);
+    this.roomService = new RoomService(allHotelData.roomService);
   }
 
   changeTimeFormat(hotelData) {
@@ -19,6 +21,7 @@ class Hotel {
   getTotalRevenue(date) {
     return this.getRevenueFromBookedRooms(date) + this.getRevenueFromRoomservice(date)
   }
+  
   
 
 }

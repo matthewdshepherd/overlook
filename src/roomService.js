@@ -11,13 +11,13 @@ class RoomService {
     })
   }
 
-  getRevenueFromRoomservice(date) { // room service class
+  getRevenueFromRoomservice(date) {
     return this.getRoomService(date).reduce((totalRevenue, item) => {
       return totalRevenue += item.totalCost
     }, 0)
   }
 
-  getRoomService(date) { // room service class
+  getRoomService(date) {
     return this.roomServiceData.filter(item => item.date === date)
   }
 

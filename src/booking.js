@@ -12,6 +12,7 @@ class Bookings {
   }
 
   getRoomsAvailable(date) {
+    // console.log('this.bookingsData.filter(room => room.date === date)', this.bookingsData)
     return this.bookingsData.filter(room => room.date === date)
   }
 
@@ -20,6 +21,7 @@ class Bookings {
   }
 
   getPercentageOfRoomsBooked(date, hotelRooms) {
+    // console.log('asdfasd', this.getRoomsAvailable(date).length)
     return (this.getRoomsAvailable(date).length / hotelRooms.length) * 100
   }
 
@@ -52,7 +54,7 @@ class Bookings {
     const leastBookings = bookingsDailyTotal[bookingsDailyTotal.length - 1]
     const dayWithMostBookings = bookingsDays.filter(day => bookingDates[day] === mostBookings)
     const dayWithleastBookings = bookingsDays.filter(day => bookingDates[day] === leastBookings)
-    return {dayWithMostBookings, dayWithleastBookings}
+    return [dayWithMostBookings, dayWithleastBookings]
   }
 }
 
