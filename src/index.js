@@ -67,7 +67,8 @@ $('.customer--search--results').on('click', (event) => {
   hotel.currentCustomer = hotel.customers.find( customer => customer.id  === parseInt(event.target.dataset.id))
   updateDomWithCurrentCustomer()
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
-  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils) // need toe ehked if this is going the righ tway 
+  domUpdates.removeCustomerNewBookingInput()
+  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils) 
   $('.customer--result').remove();
   $('.customer--search__input').val('')
 })
@@ -88,6 +89,11 @@ $('.customer--create').on('keydown', (event) => {
     domUpdates.removeNewCustomerInput();
     domUpdates.activateAddNewCustomerButton();
   }
+})
+
+$('.bookings--tool').on('click', (event) => {
+  console.log(event)
+  // domU
 })
 
 const updateDomWithCurrentCustomer = () => {

@@ -73,6 +73,10 @@ export default {
     $('.customer--create--input').focusout().remove()
   },
 
+  removeCustomerNewBookingInput() {
+    $('.create--customer--booking__input').focusout().remove()
+  },
+
   activateAddNewCustomerButton() {
     $('.customer--create__buttton').prop('disabled', false)
   },
@@ -95,30 +99,44 @@ export default {
   },
 
   appendCustomerBookingsToDOM(bookings) {
+    $('.current--customer--bookings__div').remove()
     bookings.forEach(booking => {
       $('.current--customer--bookings').append(
-        `<div class="current--customer--bookings__div">
+        `<container class="current--customer--bookings__div">
         <p class="current--customer--bookings--roomNum">Room Number #: ${booking.roomNumber}</p>
-        <p class="current--customer--bookings--date">Date: ${booking.date}</p>
-        </div>`
+        <p class="current--customer--bookings--date">Date: ${new Date(parseInt(booking.date)).toString().split(' ').splice(0, 4).join(' ')}</p>
+        </container>`
       )
     })
   },
 
+  createBookingOption(date) {
+    $('.bookings--tool').append(`<p>No Rooms Booke for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
+    // availableRooms.forEach(room => {
+      // $('.bookings--tool').append(
+        // ``
+        // `<container class="bookings--tool__div">
+        // <p>Room Available:</p>
+        // <p>Room Number: ${room.number}</p>
+        // <p>Room Type: ${room.roomType}</p>
+        // <p>Number of Beds: ${room.numBeds}</p>
+        // <p>Bed Type: ${room.bedSize}</p>
+        // <p>Nightly Cost: ${room.costPerNight}</p>
+        // <p>Bidet: ${(room.bidet) ? 'YES' : 'NO'}</p>
+        // </container>`
+      // )
+    // })
+  },
+
   createBookingTool(availableRooms) {
-    availableRooms.forEach(room => {
-      $('.bookings--tool').append(
-        `<div class="bookings--tool__div">
-        <p>Room Available:</p>
-        <p>Room Number: ${room.number}</p>
-        <p>Room Type: ${room.roomType}</p>
-        <p>Number of Beds: ${room.numBeds}</p>
-        <p>Bed Type: ${room.bedSize}</p>
-        <p>Nightly Cost: ${room.costPerNight}</p>
-        <p>Bidet: ${(room.bidet) ? 'YES' : 'NO'}</p>
-        </div>`
-      )
-    })
+    $('.create--customer--booking__input').after(
+      `<select>
+      ${availableRooms}
+      </select>`
+    )
   }
+
+  
+
 
 }
