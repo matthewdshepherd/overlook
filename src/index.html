@@ -43,11 +43,13 @@
         <input class="customer--search__input" type="text" placeholder="SEARCH GUESTS">
         <input class="customer--create__buttton" type="button" value=" + Add Customer">
       </section>
-      <div class="customer--search--create">
-        <div class="customer--search--results">
+      <div class="customer--search--create--box">
+        <div class="customer--search--create">
+          <div class="customer--search--results">
+          </div>
         </div>
-        <div class="customer--create">
-        </div>
+          <div class="customer--create">
+            </div>
       </div>
       <div class="tabs-stage">
         <div id="dashboard">
@@ -68,8 +70,10 @@
         <div id="bookings">
           <p class="bookings__text">Here is where we would display the bookings!!</p>
           <p class="bookings__text ">Most popular booking date(s): <span class="bookings__text--mostpop"></span></p>
-          <p class="bookings__text">Date(s) with least amoutn of bookings: <span class="bookings__text--leastpop"></span></p>
+          <p class="bookings__text">Date(s) with least amount of bookings: <span class="bookings__text--leastpop"></span></p>
           <p>Current Customer: <span class="current--customer--name">No Customer Selected</span></p>
+          <container class="bookings--tool"></container>
+          <container class="current--customer--bookings"></container>
         </div>
       </div>
     </main>

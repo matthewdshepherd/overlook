@@ -1,4 +1,5 @@
 import $ from "jquery";
+import Hotel from './Hotel';
 
 export default {
   
@@ -52,7 +53,6 @@ export default {
   },
 
   appendCustomerSearch(customer) {
-    console.log(customer.name)
     $('.customer--search--results').append(
       `<input class="customer--result" type="button" data-id="${customer.id}" value="${customer.name}">`
     )
@@ -93,5 +93,32 @@ export default {
         .select()
     )
   },
+
+  appendCustomerBookingsToDOM(bookings) {
+    bookings.forEach(booking => {
+      $('.current--customer--bookings').append(
+        `<div class="current--customer--bookings__div">
+        <p class="current--customer--bookings--roomNum">Room Number #: ${booking.roomNumber}</p>
+        <p class="current--customer--bookings--date">Date: ${booking.date}</p>
+        </div>`
+      )
+    })
+  },
+
+  createBookingTool(availableRooms) {
+    availableRooms.forEach(room => {
+      $('.bookings--tool').append(
+        `<div class="bookings--tool__div">
+        <p>Room Available:</p>
+        <p>Room Number: ${room.number}</p>
+        <p>Room Type: ${room.roomType}</p>
+        <p>Number of Beds: ${room.numBeds}</p>
+        <p>Bed Type: ${room.bedSize}</p>
+        <p>Nightly Cost: ${room.costPerNight}</p>
+        <p>Bidet: ${(room.bidet) ? 'YES' : 'NO'}</p>
+        </div>`
+      )
+    })
+  }
 
 }

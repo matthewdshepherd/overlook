@@ -211,9 +211,13 @@ it('should be able to pull all bookings for a customer', () => {
   { userID: 45, date: 1570687200000, roomNumber: 38 }])
 })
 
-it.only('Should be able to return boolean if booking falls on today', () => {
+it('Should be able to return boolean if booking/no booking falls on today', () => {
   expect(hotel.bookings.findBookingForToday(currentCustomer, 1570687200000)).to.equal(true)
   expect(hotel.bookings.findBookingForToday(currentCustomer2, 1571119200000)).to.equal(false)
+})
+
+it('Should be able to creaet a booking for today', () => {
+  console.log(hotel.bookings.newBookingOption(currentCustomer, date))
 })
 
 })

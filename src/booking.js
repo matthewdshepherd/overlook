@@ -1,3 +1,5 @@
+import domUpdates from "./domUpdates";
+
 class Bookings {
   constructor(bookingsData) {
     this.bookingsData = this.changeTimeFormat(bookingsData)
@@ -66,6 +68,13 @@ class Bookings {
       return true
     }
   }
+
+  newBookingOption(customer, date) {
+    if (!this.findBookingForToday(customer, date)) {
+      domUpdates.createBookingTool(this.getRoomsAvailable(date))
+    }
+  }
+
 }
 
   export default Bookings

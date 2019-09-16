@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 
 import $ from 'jquery';
 import './css/base.scss';
@@ -44,6 +45,15 @@ $(document).ready(() => {
   })
 })
 
+const openHotel = () => {
+  const dateTodayMils = dateTodayMiliseconds()
+  domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMils, hotel.rooms));
+  domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMils, hotel.rooms));
+  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
+  domUpdates.appendAllRoomService(hotel.roomService.getRoomService(dateTodayMils));
+  domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
+}
+
 $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
   $('.tabs-nav div').removeClass('tab-active');
@@ -53,8 +63,11 @@ $('.tabs-nav a').on('click', function (event) {
 });
 
 $('.customer--search--results').on('click', (event) => {
+  const dateTodayMils = dateTodayMiliseconds()
   hotel.currentCustomer = hotel.customers.find( customer => customer.id  === parseInt(event.target.dataset.id))
   updateDomWithCurrentCustomer()
+  domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
+  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils) // need toe ehked if this is going the righ tway 
   $('.customer--result').remove();
   $('.customer--search__input').val('')
 })
@@ -81,25 +94,16 @@ const updateDomWithCurrentCustomer = () => {
   domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer)
 }
 
-const openHotel = () => {
-  const dateTodayMils = dateTodayMiliseconds()
-  domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMils, hotel.rooms));
-  domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMils, hotel.rooms));
-  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
-  domUpdates.appendAllRoomService(hotel.roomService.getRoomService(dateTodayMils));
-  domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
+const dateTodayMiliseconds = () => {
+  const date = new Date(Date.now())
+  const dateYearMonthDate = `${date.getFullYear()+'/'+(date.getMonth()+1)+'/'+date.getDate()}`
+  const updatedDate = new Date(dateYearMonthDate)
+  return updatedDate.getTime();
 }
 
-  const dateTodayMiliseconds = () => {
-    const date = new Date(Date.now())
-    const dateYearMonthDate = `${date.getFullYear()+'/'+(date.getMonth()+1)+'/'+date.getDate()}`
-    const updatedDate = new Date(dateYearMonthDate)
-    return updatedDate.getTime();
-  }
-
-  const dateInString = () => {
-    return new Date(dateTodayMiliseconds()).toString().split(' ').splice(0, 4).join(' ')
-  }
+const dateInString = () => {
+  return new Date(dateTodayMiliseconds()).toString().split(' ').splice(0, 4).join(' ')
+}
 
 const getTotalRevenue = (date, hotelRooms) => {
   return hotel.bookings.getRevenueFromBookedRooms(date, hotelRooms) + hotel.roomService.getRevenueFromRoomservice(date)
@@ -114,13 +118,7 @@ const searchFilter = (event) => {
   results.forEach( (customer)=> {
     domUpdates.appendCustomerSearch(customer);
   });
-  console.log(results.length)
-  if (results.length > 80){
-    console.log('tyring to delete')
+  if (results.length > 70) {
     $('.customer--result').remove();
   }
 }
-
-
-
-
