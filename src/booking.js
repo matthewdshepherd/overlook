@@ -59,8 +59,13 @@ class Bookings {
     return this.bookingsData.filter(booking => booking.userID === customer.id)
   }
 
-  findBookingForToday(customer, date) {}
-    return (allBookingsOfCustomer(customer).find( booking => booking.date === date))
+  findBookingForToday(customer, date) {
+    if(this.allBookingsOfCustomer(customer).find( booking => booking.date === date) === undefined) {
+      return false
+    } else {
+      return true
+    }
+  }
 }
 
   export default Bookings

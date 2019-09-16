@@ -4,13 +4,18 @@ const expect = chai.expect;
 import Hotel from '../src/Hotel.js';
 import sampleHotelData from './sampleHotelData.js';
 
-var hotel, currentCustomer;
+var hotel, currentCustomer, currentCustomer2;
 
 beforeEach(() => {
   hotel = new Hotel(sampleHotelData)
   currentCustomer = {
     "id": 45,
     "name": "Maiya Ratke"
+  }
+  currentCustomer2 = {
+    userID: 52,
+    date: "2019/10/15",
+    roomNumber: 26
   }
 });
 
@@ -206,8 +211,9 @@ it('should be able to pull all bookings for a customer', () => {
   { userID: 45, date: 1570687200000, roomNumber: 38 }])
 })
 
-it('Should be able to return boolean if booking falls on today', () => {
-  console.log(hotel.bookings.findBookingForToday(currentCustomer, date))
+it.only('Should be able to return boolean if booking falls on today', () => {
+  expect(hotel.bookings.findBookingForToday(currentCustomer, 1570687200000)).to.equal(true)
+  expect(hotel.bookings.findBookingForToday(currentCustomer2, 1571119200000)).to.equal(false)
 })
 
 })
