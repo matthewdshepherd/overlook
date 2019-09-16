@@ -41,7 +41,7 @@ export default {
     const leasstPopularDates = dates[1].map(day => new Date(parseInt(day)).toString().split(' ').splice(0, 4).join(' '))
     mostPopularDates.forEach( date => {
       $('.bookings__text--mostpop').append(
-      `<span class="mostpop">${date} | </span>`
+        `<span class="mostpop">${date} | </span>`
       )
     })
     leasstPopularDates.forEach(date => {
@@ -54,8 +54,44 @@ export default {
   appendCustomerSearch(customer) {
     console.log(customer.name)
     $('.customer--search--results').append(
-     `<input class="customer--result" type="button" data-id="${customer.id}" value="${customer.name}">`
+      `<input class="customer--result" type="button" data-id="${customer.id}" value="${customer.name}">`
     )
-  }
+  },
+
+  appendCurrentCusomterNameToDom(name){
+    $('.current--customer--name').text(name.name)
+  },
+
+  buildAddCustomerInputField() {
+    $('.customer--create').append(
+      `<input class="customer--create--input" type="text" placeholder="ENTER NEW GUEST'S NAME">`
+    )
+    $('.customer--create__buttton').prop('disabled', true)
+  },
+
+  removeNewCustomerInput() {
+    $('.customer--create--input').focusout().remove()
+  },
+
+  activateAddNewCustomerButton() {
+    $('.customer--create__buttton').prop('disabled', false)
+  },
+
+  focusInNewCustomerInputField() {
+    $('.customer--create--input')
+      .focus()
+      .select()
+  },
+
+  selectCustomerFromSearchField() {
+    if ($('.customer--result')[1]) {
+      $('.customer--result')[0]
+        .focus()
+    } else (
+      $('.customer--result')
+        .focus()
+        .select()
+    )
+  },
 
 }

@@ -2,34 +2,34 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Hotel from '../src/Hotel.js';
-import Bookings from '../src/Booking.js';
-import RoomService from '../src/RoomService.js';
 import sampleHotelData from './sampleHotelData.js';
 
-var hotel, bookings, roomService;
+var hotel, currentCustomer;
 
 beforeEach(() => {
   hotel = new Hotel(sampleHotelData)
-  bookings = new Bookings(sampleHotelData.bookings);
-  roomService = new RoomService(sampleHotelData.roomService);
+  currentCustomer = {
+    "id": 45,
+    "name": "Maiya Ratke"
+  }
 });
 
 describe('Bookings', () => {
 
   it('Should be an instance of Bookigs', () => {
-    expect(bookings).to.be.an.instanceOf(Bookings);
+    expect(hotel.bookings).to.be.an.instanceOf(Bookings);
   });
 
   it('Should have access to bookings data', () => {
-    expect(bookings.bookingsData).to.be.an('array');
+    expect(hotel.bookings.bookingsData).to.be.an('array');
   });
 
   it('should turn date from sting to miliseconds', () => {
-    expect(bookings.bookingsData[0]).to.eql({ userID: 4, date: 1571464800000, roomNumber: 5 });
+    expect(hotel.bookings.bookingsData[0]).to.eql({ userID: 4, date: 1571464800000, roomNumber: 5 });
   })
 
   it('Should be able to find available rooms for a specific date', () => {
-    expect(bookings.getRoomsAvailable(1570946400000)).to.eql(
+    expect(hotel.bookings.getRoomsAvailable(1570946400000)).to.eql(
       [{ userID: 70, date: 1570946400000, roomNumber: 43 },
         { userID: 91, date: 1570946400000, roomNumber: 15 },
         { userID: 29, date: 1570946400000, roomNumber: 42 },
@@ -53,25 +53,25 @@ describe('Bookings', () => {
   })
 
   it('Should be able to find how many rooms are available on a specific date', () => {
-    expect(bookings.getAmountOfRoomsAvailable(1570946400000, hotel.rooms)).to.equal(30)
+    expect(hotel.bookings.getAmountOfRoomsAvailable(1570946400000, hotel.rooms)).to.equal(30)
   })
 
   it('Should be able to show how manys rooms are occupied in a %', () => {
-    expect(bookings.getPercentageOfRoomsBooked(1570946400000, hotel.rooms)).to.equal(40)
+    expect(hotel.bookings.getPercentageOfRoomsBooked(1570946400000, hotel.rooms)).to.equal(40)
   })
 
   it('Should be able find revenue from booked rooms for a specific day', () => {
-    expect(bookings.getRevenueFromBookedRooms(1570946400000, hotel.rooms)).to.equal(6463)
+    expect(hotel.bookings.getRevenueFromBookedRooms(1570946400000, hotel.rooms)).to.equal(6463)
   })
 
-  it.only('should be able to create an object with dates and amount of bookings', () => {
-    console.log(bookings.doSomeThings())
+  it('should be able to create an object with dates and amount of bookings', () => {
+    console.log(hotel.bookings.doSomeThings())
 
   })
 
   it('Should be able to return an object of dates and amount of bookings that day has', () => {
     // console.log(bookings.getBookingDates())
-    expect(bookings.getBookingDates()).to.eql({
+    expect(hotel.bookings.getBookingDates()).to.eql({
       '1571464800000': 12,
       '1572415200000': 18,
       '1567317600000': 18,
@@ -177,10 +177,37 @@ describe('Bookings', () => {
   })
  
   it('Should be able to return the day with the most bookngs', () => {
-    expect(bookings.getMostBookedDay()).to.eql({
+    expect(hotel.bookings.getMostBookedDay()).to.eql({
       dayWithMostBookings: ['1572242400000', '1567836000000', '1571810400000'],
       dayWithleastBookings: ['1563861600000']
     })
   })
+
+it('should be able to pull all bookings for a customer', () => {
+  expect(hotel.bookings.allBookingsOfCustomer(currentCustomer)).to.eql([{ userID: 45, date: 1564034400000, roomNumber: 39 },
+  { userID: 45, date: 1566712800000, roomNumber: 46 },
+  { userID: 45, date: 1568613600000, roomNumber: 13 },
+  { userID: 45, date: 1570341600000, roomNumber: 23 },
+  { userID: 45, date: 1571896800000, roomNumber: 31 },
+  { userID: 45, date: 1564898400000, roomNumber: 2 },
+  { userID: 45, date: 1565071200000, roomNumber: 15 },
+  { userID: 45, date: 1571724000000, roomNumber: 1 },
+  { userID: 45, date: 1571378400000, roomNumber: 14 },
+  { userID: 45, date: 1571637600000, roomNumber: 27 },
+  { userID: 45, date: 1571205600000, roomNumber: 20 },
+  { userID: 45, date: 1566626400000, roomNumber: 39 },
+  { userID: 45, date: 1567058400000, roomNumber: 10 },
+  { userID: 45, date: 1564552800000, roomNumber: 29 },
+  { userID: 45, date: 1570428000000, roomNumber: 12 },
+  { userID: 45, date: 1570687200000, roomNumber: 50 },
+  { userID: 45, date: 1571724000000, roomNumber: 26 },
+  { userID: 45, date: 1568613600000, roomNumber: 49 },
+  { userID: 45, date: 1567576800000, roomNumber: 8 },
+  { userID: 45, date: 1570687200000, roomNumber: 38 }])
+})
+
+it('Should be able to return boolean if booking falls on today', () => {
+  console.log(hotel.bookings.findBookingForToday(currentCustomer, date))
+})
 
 })

@@ -133,6 +133,11 @@
   align-items: center;
 }
 
+.customer--search--create {
+  display: flex;
+  justify-content: space-between;
+}
+
 .customer--search--results {
   display: flex;
   flex-direction: column;
@@ -142,4 +147,9 @@
 .customer--result {
   width: 300px;
   font-size: 30px;
+}
+.customer--create--input {
+  width: 200px;
+  height: 40px;
+  // border: none;
 }

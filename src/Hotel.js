@@ -8,6 +8,7 @@ class Hotel {
     this.bookings = new Bookings(allHotelData.bookings);
     this.rooms = allHotelData.rooms;
     this.roomService = new RoomService(allHotelData.roomService);
+    this.currentCustomer;
   }
 
   changeTimeFormat(hotelData) {
@@ -22,7 +23,7 @@ class Hotel {
     return this.getRevenueFromBookedRooms(date) + this.getRevenueFromRoomservice(date)
   }
   
-  
+
 
 }
 

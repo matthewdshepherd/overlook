@@ -8,6 +8,7 @@ import './images/dashboard.svg';
 import './images/Luna-StayMore.png';
 import domUpdates from "./domUpdates";
 import Hotel from './Hotel';
+import { parse } from 'querystring';
 
 let hotel;
 
@@ -34,22 +35,14 @@ $(document).ready(() => {
   domUpdates.appendDateToPage(todaysDate);
   domUpdates.showFirstTabByDefault();
   $('.customer--search__input').on('keypress', searchFilter)
-  $('.customer--search__input').on('keydown', (e) => {
-    if (e.keyCode == 8) {
+  $('.customer--search__input').on('keydown', (event) => {
+    if (event.keyCode === 8) {
       searchFilter()
+    } else if (event.keyCode === 13) {
+      domUpdates.selectCustomerFromSearchField();
     }
   })
-
 })
-
-const openHotel = () => {
-  const dateTodayMils = dateTodayMiliseconds()
-  domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMils, hotel.rooms));
-  domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMils, hotel.rooms));
-  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
-  domUpdates.appendAllRoomService(hotel.roomService.getRoomService(dateTodayMils));
-  domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
-}
 
 $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
@@ -59,6 +52,43 @@ $('.tabs-nav a').on('click', function (event) {
   $($(this).attr('href')).show();
 });
 
+$('.customer--search--results').on('click', (event) => {
+  hotel.currentCustomer = hotel.customers.find( customer => customer.id  === parseInt(event.target.dataset.id))
+  updateDomWithCurrentCustomer()
+  $('.customer--result').remove();
+  $('.customer--search__input').val('')
+})
+
+$('.customer--create__buttton').on('click', () => {
+  domUpdates.buildAddCustomerInputField();
+  domUpdates.focusInNewCustomerInputField();
+})
+
+$('.customer--create').on('keydown', (event) => {
+  if (event.keyCode === 13 && $('.customer--create--input').val() === '') {
+    domUpdates.removeNewCustomerInput();
+    domUpdates.activateAddNewCustomerButton();
+  } else if (event.keyCode === 13) {
+    hotel.currentCustomer = {id: hotel.customers.length + 1, name: $('.customer--create--input').val()}
+    hotel.customers.push(hotel.currentCustomer)
+    domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer)
+    domUpdates.removeNewCustomerInput();
+    domUpdates.activateAddNewCustomerButton();
+  }
+})
+
+const updateDomWithCurrentCustomer = () => {
+  domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer)
+}
+
+const openHotel = () => {
+  const dateTodayMils = dateTodayMiliseconds()
+  domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMils, hotel.rooms));
+  domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMils, hotel.rooms));
+  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
+  domUpdates.appendAllRoomService(hotel.roomService.getRoomService(dateTodayMils));
+  domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
+}
 
   const dateTodayMiliseconds = () => {
     const date = new Date(Date.now())
@@ -90,5 +120,7 @@ const searchFilter = (event) => {
     $('.customer--result').remove();
   }
 }
+
+
 
 

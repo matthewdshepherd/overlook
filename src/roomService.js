@@ -21,6 +21,15 @@ class RoomService {
     return this.roomServiceData.filter(item => item.date === date)
   }
 
+  // - Total $$ spent for a specific day for Room Service
+  getCustomersRoomServiceAllTime(currentCustomer) {
+    return this.roomServiceData.filter(item => item.userID === currentCustomer.id)
+  }
+
+  getCustomerRoomSeriveForASpecificDay(currentCustomer, date) {
+    return this.roomServiceData.filter(item => item.userID === currentCustomer.id)
+  }
+
 }
 
 export default RoomService
