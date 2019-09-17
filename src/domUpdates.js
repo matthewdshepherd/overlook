@@ -152,7 +152,7 @@ export default {
           <p>Bed Size: ${booking.bedSize}</p>
           <p>Number of Beds: ${booking.numBeds}</p>
           <p>Price per Night: ${booking.costPerNight}</p>
-          <input id="${booking.number} type="button" value="Select Room">
+          <input type="button" class="select--room" value="Select Room ">
         </container>`
       )
     })

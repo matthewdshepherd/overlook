@@ -69,17 +69,16 @@ class Bookings {
   }
 
   findBookingForToday(customer, date) {
-    if(this.allBookingsOfCustomer(customer).find( booking => booking.date === date) === undefined) {
+    if (this.allBookingsOfCustomer(customer).find( booking => parseInt(booking.date) === date) === undefined) {
       return false
     } else {
       return true
     }
   }
 
-  newBookingOption(hotelRooms, customer, date) {
-    console.log('newBookingOption firing')
+  newBookingOption(customer, date) {
+    console.log('!this.findBookingForToday(customer, date)', !this.findBookingForToday(customer, date))
     if (!this.findBookingForToday(customer, date)) {
-      console.log('newBookingOption conidtional firing')
       domUpdates.createBookingOption(date)
     }
   }
@@ -121,20 +120,22 @@ class Bookings {
     return this.getRoomsNotBooked(hotelRooms, date).filter(room => room.roomType === roomType)
   }
 
-  newBooking(roomType, hotelRooms, date, currentCustomer){
-    const bookedRoom = this.getRoomsNotBooked(hotelRooms, date).find(room => room.roomType === roomType)
+  newBooking(roomNumber, hotelRooms, date, currentCustomer){
+    console.log(this.dateTodayMiliseconds())
     const newBooking = {
       userID: currentCustomer.id,
-      date:`${this.dateTodayString()}`,
-      roomNumber: bookedRoom.number
+      date: `${this.dateTodayMiliseconds()}`,
+      roomNumber: roomNumber
     }
     this.bookingsData.push(newBooking)
     return newBooking
   }
 
-  dateTodayString () {
+  dateTodayMiliseconds() {
     const date = new Date(Date.now())
-    return `${date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()}`
+    const dateYearMonthDate = `${date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()}`
+    const updatedDate = new Date(dateYearMonthDate)
+    return updatedDate.getTime();
   }
 
 }

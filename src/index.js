@@ -71,7 +71,7 @@ $('.customer--search--results').on('click', (event) => {
   updateDomWithCurrentCustomer()
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
   domUpdates.removeCustomerNewBookingInput()
-  hotel.bookings.newBookingOption(hotel.rooms, hotel.currentCustomer, dateTodayMils) 
+  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils) 
   $('.customer--result').remove();
   $('.customer--search__input').val('')
 })
@@ -105,12 +105,18 @@ $('.bookings--tool').on('click', (event) => {
   }
   if (event.target.className === 'room--confirmation__input') {
     const roomRequestType = $('#select--room--type').val()
-    // const roomType = [hotel.bookings.newBooking($('#select--room--type').val(), hotel.rooms, dateTodayMils, hotel.currentCustomer)] - this is working - maybed not need to have it be in an array literal
     domUpdates.removeAvailableRooms();
     domUpdates.appendRoomChoices(hotel.bookings.getAvailableRooms(hotel.rooms, dateTodayMiliseconds(), $('#select--room--type').val()));
-    // hotel.bookings.newBooking($('#select--room--type').val())
-    // domUpdates.appendCustomerBookingsToDOM([hotel.bookings.newBooking($('#select--room--type').val())])
   }
+})
+
+$('.room--options').on('click', () => {
+  hotel.bookings.newBooking(event.target.parentElement.id, hotel.rooms, dateTodayMils, hotel.currentCustomer)
+  // have to clear out bookings tool and room options
+  domUpdates.removeBookingsTool();
+  domUpdates.removeAvailableRooms();
+  //need to rerun checking for orders and appendning that to the DOM
+  domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
 })
 
 const updateDomWithCurrentCustomer = () => {
