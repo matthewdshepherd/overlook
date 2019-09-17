@@ -88,6 +88,10 @@ export default {
     $('.customer--create--input').focusout().remove()
   },
 
+  removeFoodServiceMenuInput() {
+    $('.orders--tool').remove()
+  },
+
   removeCustomerNewBookingInput() {
     $('.create--customer--booking__input').focusout().remove()
   },

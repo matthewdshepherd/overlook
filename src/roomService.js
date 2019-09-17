@@ -67,7 +67,7 @@ class RoomService {
       userID: parseInt(currentCustomer.id),
       date: dateToday,
       food: foodPrice.food,
-      totalCost: parseInt(foodPrice.totalCost)
+      totalCost: Number.parseFloat(foodPrice.totalCost).toFixed(2)
     }
     this.roomServiceData.push(newOrder)
     return newOrder
