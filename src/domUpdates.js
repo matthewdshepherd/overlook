@@ -28,11 +28,22 @@ export default {
   appendAllRoomService(allRoomService) {
     allRoomService.forEach( order => {
       $('.orders__text').after(`
-      <div class="orders--item">
+      <container class="orders--item">
       <p>Customer ID: ${order.userID}</p>
       <p>Item: ${order.food}</p>
       <p>Price: ${order.totalCost}</p>
-      </div>
+      </container>
+      `)
+    })
+  },
+
+  appendCustomerRoomService(allRoomService) {
+    allRoomService.forEach(order => {
+      $('.current--customer--orders').append(`
+      <container class="orders--customer--item">
+      <p>Item: ${order.food}</p>
+      <p>Price: ${order.totalCost}</p>
+      </container>
       `)
     })
   },
@@ -111,6 +122,7 @@ export default {
   },
 
   createBookingOption(date) {
+    console.log('createBookingOption is running')
     $('.bookings--tool').append(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
   },
 
@@ -135,6 +147,10 @@ export default {
 
   removeAvailableRooms() {
     $('.room--options').empty()
+  },
+
+  removeCustomerOrders() {
+    $('.current--customer--orders').empty()
   },
 
   removeCurrentBookings() {

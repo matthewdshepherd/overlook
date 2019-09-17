@@ -68,10 +68,12 @@ $('.customer--search--results').on('click', (event) => {
   hotel.currentCustomer = hotel.customers.find( customer => customer.id  === parseInt(event.target.dataset.id))
   domUpdates.removeBookingsTool();
   domUpdates.removeAvailableRooms();
-  updateDomWithCurrentCustomer()
-  domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
-  domUpdates.removeCustomerNewBookingInput()
-  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils) 
+  domUpdates.removeCustomerOrders();
+  updateDomWithCurrentCustomer();
+  domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer));
+  domUpdates.removeCustomerNewBookingInput();
+  domUpdates.appendCustomerRoomService(hotel.roomService.getCustomersRoomServiceAllTime(hotel.currentCustomer));
+  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils);
   $('.customer--result').remove();
   $('.customer--search__input').val('')
 })
@@ -91,6 +93,7 @@ $('.customer--create').on('keydown', (event) => {
     domUpdates.removeBookingsTool();
     domUpdates.removeAvailableRooms();
     domUpdates.removeCurrentBookings();
+    domUpdates.removeCustomerOrders();
     domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer);
     domUpdates.createBookingOption(dateTodayMils)
     domUpdates.removeNewCustomerInput();

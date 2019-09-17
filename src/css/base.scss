@@ -185,6 +185,12 @@
   margin: 10px 0;
 }
 
+.orders--customer--item,
+.current--customer--orders {
+  display: flex;
+  flex-direction: column;
+}
+
 .individual--room--options {
   background-color: pink;
 }
@@ -195,3 +201,4 @@
   flex-direction: column;
   width: 300px;
 }
+
