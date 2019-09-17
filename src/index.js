@@ -88,6 +88,7 @@ $('.customer--create').on('keydown', (event) => {
     hotel.currentCustomer = {id: hotel.customers.length + 1, name: $('.customer--create--input').val()}
     hotel.customers.push(hotel.currentCustomer)
     domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer)
+    domUpdates.createBookingOption(dateTodayMils)
     domUpdates.removeNewCustomerInput();
     domUpdates.activateAddNewCustomerButton();
   }

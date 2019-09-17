@@ -22,8 +22,6 @@ class Hotel {
   getTotalRevenue(date) {
     return this.getRevenueFromBookedRooms(date) + this.getRevenueFromRoomservice(date)
   }
-  
-
 
 }
 
