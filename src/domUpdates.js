@@ -111,29 +111,20 @@ export default {
   },
 
   createBookingOption(date) {
-    $('.bookings--tool').append(`<p>No Rooms Booke for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
-    // availableRooms.forEach(room => {
-      // $('.bookings--tool').append(
-        // ``
-        // `<container class="bookings--tool__div">
-        // <p>Room Available:</p>
-        // <p>Room Number: ${room.number}</p>
-        // <p>Room Type: ${room.roomType}</p>
-        // <p>Number of Beds: ${room.numBeds}</p>
-        // <p>Bed Type: ${room.bedSize}</p>
-        // <p>Nightly Cost: ${room.costPerNight}</p>
-        // <p>Bidet: ${(room.bidet) ? 'YES' : 'NO'}</p>
-        // </container>`
-      // )
-    // })
+    $('.bookings--tool').append(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
   },
 
   createBookingTool(availableRooms) {
+    $('.create--customer--booking__input').prop('disabled', true)
     $('.create--customer--booking__input').after(
       `<select>
       ${availableRooms}
       </select>`
     )
+  },
+
+  removeBookingsTool() {
+    $('.bookings--tool').empty()
   }
 
   

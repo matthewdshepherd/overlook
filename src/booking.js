@@ -76,34 +76,26 @@ class Bookings {
     }
   }
 
-  newBookingOption(customer, date) {
+  newBookingOption(hotelRooms, customer, date) {
     if (!this.findBookingForToday(customer, date)) {
-      this.getBookingDataOfRoomsBooked(date)
-      domUpdates.createBookingTool(this.createRoomOptions((this.findRoomTypesForToday(date) ) ) )
+      domUpdates.createBookingOption(date)
     }
   }
 
   createRoomOptions(availableRooms) {
-    console.log(availableRooms)
     return availableRooms.map(room => {
       return `<option value="${room.number}">${room.roomType}</option>`
     })
   }
 
-  findRoomTypesForToday(date) {
+  findRoomTypesForToday(hotelRooms, date) {
     let availableRoomTypes = [];
-    const availableRooms = this.getBookingDataOfRoomsBooked(date)
-    console.log(this.getBookingDataOfRoomsBooked(date))
-    if (availableRooms.find(room => room.roomType === "junior suite") != undefined ) { console.log('this works here!!!!!!!!!!!!!!!!!')}
-    if (availableRooms.find(room => room.roomType === "residential suite") != undefined) { console.log('this works here!!!!!!!!!!!!!!!!!')}
-    if (availableRooms.find(room => room.roomType === "single room") != undefined ) { console.log('this works here!!!!!!!!!!!!!!!!!')}
-    if (availableRooms.find(room => room.roomType === "suite") != undefined ) { console.log('this works here!!!!!!!!!!!!!!!!!')}
-    // availableRooms.find(room => room.roomType === "junior suite") != undefined ?  availableRoomTypes.push(availableRooms.find(room => room.roomType === "junior suite")) : null;
-    // availableRooms.find(room => room.roomType === "residential suite") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "residential suite")) : null;
-    // availableRooms.find(room => room.roomType === "single room") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "single room")) : null;
-    // availableRooms.find(room => room.roomType === "suite") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "suite")) : null;
-    // console.log(availableRoomTypes)
-    let thisStuff = availableRooms.map( room => {
+    const availableRooms = this.getRoomsNotBooked(hotelRooms, date)
+    availableRooms.find(room => room.roomType === "residential suite") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "residential suite")) : null;
+    availableRooms.find(room => room.roomType === "junior suite") != undefined ?  availableRoomTypes.push(availableRooms.find(room => room.roomType === "junior suite")) : null;
+    availableRooms.find(room => room.roomType === "suite") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "suite")) : null;
+    availableRooms.find(room => room.roomType === "single room") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "single room")) : null;
+    return availableRoomTypes.map( room => {
       if (room.roomType === "junior suite") {
         room.roomType = "Junior Suite";
         return room;
@@ -121,9 +113,6 @@ class Bookings {
         return room;
       }
     })
-
-    // console.log(thisStuff)
-    return thisStuff
   }
 
 }

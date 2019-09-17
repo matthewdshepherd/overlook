@@ -12,6 +12,7 @@ import Hotel from './Hotel';
 import { parse } from 'querystring';
 
 let hotel;
+let dateTodayMils;
 
 const customersDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users").then(response => response.json());
 const bookingsDataFetch = fetch("https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings").then(response => response.json());
@@ -65,10 +66,11 @@ $('.tabs-nav a').on('click', function (event) {
 $('.customer--search--results').on('click', (event) => {
   const dateTodayMils = dateTodayMiliseconds()
   hotel.currentCustomer = hotel.customers.find( customer => customer.id  === parseInt(event.target.dataset.id))
+  domUpdates.removeBookingsTool();
   updateDomWithCurrentCustomer()
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
   domUpdates.removeCustomerNewBookingInput()
-  hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils) 
+  hotel.bookings.newBookingOption(hotel.rooms, hotel.currentCustomer, dateTodayMils) 
   $('.customer--result').remove();
   $('.customer--search__input').val('')
 })
@@ -92,8 +94,9 @@ $('.customer--create').on('keydown', (event) => {
 })
 
 $('.bookings--tool').on('click', (event) => {
-  console.log(event)
-  // domU
+  if (event.target.className === 'create--customer--booking__input') {
+    domUpdates.createBookingTool(hotel.bookings.createRoomOptions((hotel.bookings.findRoomTypesForToday(hotel.rooms, dateTodayMils))))
+  }
 })
 
 const updateDomWithCurrentCustomer = () => {
