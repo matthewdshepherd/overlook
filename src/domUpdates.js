@@ -138,6 +138,10 @@ export default {
     $('.room--options').empty()
   },
 
+  removeCurrentBookings() {
+    $('.current--customer--bookings__div').remove()
+  },
+
   appendRoomChoices(roomChoices) {
     roomChoices.forEach(booking => { 
       $('.room--options').append(

@@ -90,6 +90,7 @@ $('.customer--create').on('keydown', (event) => {
     hotel.customers.push(hotel.currentCustomer);
     domUpdates.removeBookingsTool();
     domUpdates.removeAvailableRooms();
+    domUpdates.removeCurrentBookings();
     domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer);
     domUpdates.createBookingOption(dateTodayMils)
     domUpdates.removeNewCustomerInput();
