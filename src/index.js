@@ -69,10 +69,12 @@ $('.customer--search--results').on('click', (event) => {
   domUpdates.removeBookingsTool();
   domUpdates.removeAvailableRooms();
   domUpdates.removeCustomerOrders();
+  // remove current customer total, or rest it
   updateDomWithCurrentCustomer();
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer));
   domUpdates.removeCustomerNewBookingInput();
   domUpdates.appendCustomerRoomService(hotel.roomService.getCustomersRoomServiceAllTime(hotel.currentCustomer));
+  domUpdates.appendCustomerRoomServiceTotal(hotel.roomService.getTotalSpendOnRoomService(hotel.currentCustomer))
   hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils);
   $('.customer--result').remove();
   $('.customer--search__input').val('')

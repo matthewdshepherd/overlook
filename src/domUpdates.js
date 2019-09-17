@@ -37,6 +37,10 @@ export default {
     })
   },
 
+  appendCustomerRoomServiceTotal(total) {
+    $('.current--customer--total--spent').text(Number.parseFloat(total).toFixed(2))
+  },
+
   appendCustomerRoomService(allRoomService) {
     allRoomService.forEach(order => {
       $('.current--customer--orders').append(`
@@ -122,7 +126,6 @@ export default {
   },
 
   createBookingOption(date) {
-    console.log('createBookingOption is running')
     $('.bookings--tool').append(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
   },
 
@@ -151,6 +154,7 @@ export default {
 
   removeCustomerOrders() {
     $('.current--customer--orders').empty()
+    $('.current--customer--total--spent').text('No Customer Selected')
   },
 
   removeCurrentBookings() {

@@ -26,9 +26,32 @@ class RoomService {
     return this.roomServiceData.filter(item => item.userID === currentCustomer.id)
   }
 
+  getTotalSpendOnRoomService(currentCustomer) {
+    return this.getCustomersRoomServiceAllTime(currentCustomer).reduce( (total, meal) => {
+      return total += meal.totalCost
+    }, 0)
+  }
+
   getCustomerRoomSeriveForASpecificDay(currentCustomer, date) {
     return this.roomServiceData.filter(item => item.userID === currentCustomer.id)
   }
+
+  getRoomServiceMenu() {
+    const roomService = this.roomServiceData.reduce( (acc, order) => {
+      if (!acc[order.food]) {
+        acc[order.food] = order.totalCost
+      }
+      return acc
+    }, {})
+    const roomServiceKeys = Object.keys(roomService)
+    const roomServiceValues = Object.values(roomService)
+
+    return roomServiceKeys.map( (item, i) => {
+      return { food: item, totalCost: roomServiceValues[i]}
+    })
+  }
+
+  
 
 }
 
