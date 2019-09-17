@@ -114,6 +114,9 @@ $('.room--options').on('click', () => {
   domUpdates.removeBookingsTool();
   domUpdates.removeAvailableRooms();
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
+  domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMiliseconds(), hotel.rooms));
+  domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMiliseconds(), hotel.rooms));
+  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMiliseconds(), hotel.rooms));
 })
 
 const updateDomWithCurrentCustomer = () => {
