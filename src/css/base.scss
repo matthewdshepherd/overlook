@@ -100,9 +100,14 @@
 
 .user--info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
+}
+
+.current--customer,
+.current--user {
+  display: flex;
+  margin: none;
 }
 
 .user--name{
@@ -166,6 +171,15 @@
 
 .current--customer--bookings__div {
   background-color: #0EBB97;
+  color: #fff;
+  border: 1px solid #1F2B3C;
+  border-radius: 10px;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.room-options {
+  background-color: pink;
   color: #fff;
   border: 1px solid #1F2B3C;
   border-radius: 10px;

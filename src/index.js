@@ -102,6 +102,7 @@ $('.bookings--tool').on('click', (event) => {
   if (event.target.className === 'room--confirmation__input') {
     const roomRequestType = $('#select--room--type').val()
     // const roomType = [hotel.bookings.newBooking($('#select--room--type').val(), hotel.rooms, dateTodayMils, hotel.currentCustomer)] - this is working - maybed not need to have it be in an array literal
+    domUpdates.removeAvailableRooms();
     domUpdates.appendRoomChoices(hotel.bookings.getAvailableRooms(hotel.rooms, dateTodayMiliseconds(), $('#select--room--type').val()));
     // hotel.bookings.newBooking($('#select--room--type').val())
     // domUpdates.appendCustomerBookingsToDOM([hotel.bookings.newBooking($('#select--room--type').val())])

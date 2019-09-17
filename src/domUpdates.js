@@ -111,7 +111,7 @@ export default {
   },
 
   createBookingOption(date) {
-    $('.bookings--tool').append(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
+    $('.room--options').before(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
   },
 
   createBookingTool(availableRooms) {
@@ -133,17 +133,21 @@ export default {
     $('.bookings--tool').empty()
   },
 
+  removeAvailableRooms() {
+    $('.room--options').empty()
+  },
+
   appendRoomChoices(roomChoices) {
     roomChoices.forEach(booking => { 
-      $('.room--confirmation__input').after(
-       ` <container class="room-options">
+      $('.room--options').append(
+        ` <container id="${booking.number}" class="room-options">
           <p>Room Number: ${booking.number}</p>
           <p>Room Type: ${booking.roomType}</p>
           <p>Bidet: ${booking.bidet ? 'YES' : 'NO'}</p>
           <p>Bed Size: ${booking.bedSize}</p>
           <p>Number of Beds: ${booking.numBeds}</p>
           <p>Price per Night: ${booking.costPerNight}</p>
-          <input type="button" value="Select Room">
+          <input id="${booking.number} type="button" value="Select Room">
         </container>`
       )
     })

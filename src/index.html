@@ -29,9 +29,14 @@
       </section>
       <section class="nav__section user color--tab">
         <div class="nav__section__div user--info">
-          <img class="nav__section__div--img user--image" src="images/Luna-StayMore.png" alt="user image">
-          
-          <p class="nav__section__div--img user--name">Luna Langlois</p>
+          <container class="current--user">
+            <img class="nav__section__div--img user--image" src="images/Luna-StayMore.png" alt="user image">
+            <p class="nav__section__div--img user--name">Luna Langlois</p>
+          </container>
+          <container class="current--customer"></container>
+            <p>Current Customer:</p> 
+            <p class="current--customer--name">No Customer Selected</p>
+          </container></container>
         </div>
         <div class="nav__section__div--logout">
           <p class="nav__section__div__p--logout>LOG OUT">LOG OUT</p>
@@ -72,7 +77,9 @@
           <p class="bookings__text ">Most popular booking date(s): <span class="bookings__text--mostpop"></span></p>
           <p class="bookings__text">Date(s) with least amount of bookings: <span class="bookings__text--leastpop"></span></p>
           <p>Current Customer: <span class="current--customer--name">No Customer Selected</span></p>
-          <container class="bookings--tool"></container>
+          <container class="bookings--tool">
+            <container class="room--options"></container>
+          </container>
           <container class="current--customer--bookings">
             <p>Current Customer's Bookings:</p>
           </container>
