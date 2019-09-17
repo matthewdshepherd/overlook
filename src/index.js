@@ -100,11 +100,10 @@ $('.customer--create').on('keydown', (event) => {
 
 $('.bookings--tool').on('click', (event) => {
   if (event.target.className === 'create--customer--booking__input') {
-    domUpdates.createBookingTool(hotel.bookings.createRoomOptions((hotel.bookings.findRoomTypesForToday(hotel.rooms, dateTodayMils))))
+    domUpdates.createBookingTool(hotel.bookings.createRoomOptions((hotel.bookings.findRoomTypesForToday(hotel.rooms, dateTodayMiliseconds()))))
     domUpdates.createBookingSelectButton();
   }
   if (event.target.className === 'room--confirmation__input') {
-    const roomRequestType = $('#select--room--type').val()
     domUpdates.removeAvailableRooms();
     domUpdates.appendRoomChoices(hotel.bookings.getAvailableRooms(hotel.rooms, dateTodayMiliseconds(), $('#select--room--type').val()));
   }
@@ -112,10 +111,8 @@ $('.bookings--tool').on('click', (event) => {
 
 $('.room--options').on('click', () => {
   hotel.bookings.newBooking(event.target.parentElement.id, hotel.rooms, dateTodayMils, hotel.currentCustomer)
-  // have to clear out bookings tool and room options
   domUpdates.removeBookingsTool();
   domUpdates.removeAvailableRooms();
-  //need to rerun checking for orders and appendning that to the DOM
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer))
 })
 
