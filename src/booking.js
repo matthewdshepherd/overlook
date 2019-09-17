@@ -84,7 +84,7 @@ class Bookings {
 
   createRoomOptions(availableRooms) {
     return availableRooms.map(room => {
-      return `<option value="${room.number}">${room.roomType}</option>`
+      return `<option value="${room.roomType}">${room.title}</option>`
     })
   }
 
@@ -97,19 +97,19 @@ class Bookings {
     availableRooms.find(room => room.roomType === "single room") != undefined ? availableRoomTypes.push(availableRooms.find(room => room.roomType === "single room")) : null;
     return availableRoomTypes.map( room => {
       if (room.roomType === "junior suite") {
-        room.roomType = "Junior Suite";
+        room.title = "Junior Suite";
         return room;
       }
       if (room.roomType === "residential suite") {
-        room.roomType = "Residential Suite";
+        room.title = "Residential Suite";
         return room;
       }
       if (room.roomType === "single room") {
-        room.roomType = "Single Room";
+        room.title = "Single Room";
         return room;
       }
       if (room.roomType === "suite") {
-        room.roomType = "Suite";
+        room.title = "Suite";
         return room;
       }
     })

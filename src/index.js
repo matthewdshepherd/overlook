@@ -97,6 +97,7 @@ $('.customer--create').on('keydown', (event) => {
 $('.bookings--tool').on('click', (event) => {
   if (event.target.className === 'create--customer--booking__input') {
     domUpdates.createBookingTool(hotel.bookings.createRoomOptions((hotel.bookings.findRoomTypesForToday(hotel.rooms, dateTodayMils))))
+    domUpdates.createBookingSelectButton();
   }
 })
 
