@@ -115,6 +115,26 @@ class Bookings {
     })
   }
 
+  getAvailableRooms(hotelRooms, date, roomType) {
+    return this.getRoomsNotBooked(hotelRooms, date).filter(room => room.roomType === roomType)
+  }
+
+  newBooking(roomType, hotelRooms, date, currentCustomer){
+    const bookedRoom = this.getRoomsNotBooked(hotelRooms, date).find(room => room.roomType === roomType)
+    const newBooking = {
+      userID: currentCustomer.id,
+      date:`${this.dateTodayString()}`,
+      roomNumber: bookedRoom.number
+    }
+    this.bookingsData.push(newBooking)
+    return newBooking
+  }
+
+  dateTodayString () {
+    const date = new Date(Date.now())
+    return `${date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate()}`
+  }
+
 }
 
   export default Bookings

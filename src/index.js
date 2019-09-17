@@ -47,7 +47,7 @@ $(document).ready(() => {
 })
 
 const openHotel = () => {
-  const dateTodayMils = dateTodayMiliseconds()
+  var dateTodayMils = dateTodayMiliseconds()
   domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMils, hotel.rooms));
   domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMils, hotel.rooms));
   domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
@@ -100,8 +100,11 @@ $('.bookings--tool').on('click', (event) => {
     domUpdates.createBookingSelectButton();
   }
   if (event.target.className === 'room--confirmation__input') {
-    console.log($('#select--room--type').val())
-// create booking
+    const roomRequestType = $('#select--room--type').val()
+    // const roomType = [hotel.bookings.newBooking($('#select--room--type').val(), hotel.rooms, dateTodayMils, hotel.currentCustomer)] - this is working - maybed not need to have it be in an array literal
+    domUpdates.appendRoomChoices(hotel.bookings.getAvailableRooms(hotel.rooms, dateTodayMiliseconds(), $('#select--room--type').val()));
+    // hotel.bookings.newBooking($('#select--room--type').val())
+    // domUpdates.appendCustomerBookingsToDOM([hotel.bookings.newBooking($('#select--room--type').val())])
   }
 })
 

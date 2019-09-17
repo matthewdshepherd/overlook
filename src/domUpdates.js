@@ -131,9 +131,22 @@ export default {
 
   removeBookingsTool() {
     $('.bookings--tool').empty()
+  },
+
+  appendRoomChoices(roomChoices) {
+    roomChoices.forEach(booking => { 
+      $('.room--confirmation__input').after(
+       ` <container class="room-options">
+          <p>Room Number: ${booking.number}</p>
+          <p>Room Type: ${booking.roomType}</p>
+          <p>Bidet: ${booking.bidet ? 'YES' : 'NO'}</p>
+          <p>Bed Size: ${booking.bedSize}</p>
+          <p>Number of Beds: ${booking.numBeds}</p>
+          <p>Price per Night: ${booking.costPerNight}</p>
+          <input type="button" value="Select Room">
+        </container>`
+      )
+    })
   }
-
-  
-
 
 }
