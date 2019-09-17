@@ -77,7 +77,9 @@ class Bookings {
   }
 
   newBookingOption(hotelRooms, customer, date) {
+    console.log('newBookingOption firing')
     if (!this.findBookingForToday(customer, date)) {
+      console.log('newBookingOption conidtional firing')
       domUpdates.createBookingOption(date)
     }
   }

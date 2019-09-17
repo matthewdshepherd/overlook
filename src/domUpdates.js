@@ -111,7 +111,8 @@ export default {
   },
 
   createBookingOption(date) {
-    $('.room--options').before(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
+    console.log('createBookingOption is running')
+    $('.bookings--tool').append(`<p>No Rooms Booked for ${new Date(parseInt(date)).toString().split(' ').splice(0, 4).join(' ')}</p><input class="create--customer--booking__input" type="button" value="Book a room">`)
   },
 
   createBookingTool(availableRooms) {
