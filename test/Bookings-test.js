@@ -1,12 +1,16 @@
 import chai from 'chai';
+import spies from 'chai-spies';
 const expect = chai.expect;
+chai.use(spies);
 
 import Hotel from '../src/Hotel.js';
 import sampleHotelData from './sampleHotelData.js';
+import domUpdates from '../src/domUpdates.js';
 
 var hotel, currentCustomer, currentCustomer2;
 
 beforeEach(() => {
+  chai.spy.on(domUpdates, ['createBookingOption'], () => true);
   hotel = new Hotel(sampleHotelData)
   currentCustomer = {
     "id": 45,
@@ -18,6 +22,10 @@ beforeEach(() => {
     roomNumber: 26
   }
 });
+
+afterEach( () => {
+chai.spy.restore(domUpdates)
+})
 
 describe('Bookings', () => {
 
@@ -217,7 +225,15 @@ it('Should be able to return boolean if booking/no booking falls on today', () =
 })
 
 it('Should be able to creaet a booking for today', () => {
-  console.log(hotel.bookings.newBookingOption(currentCustomer, date))
+  console.log(hotel.bookings.newBookingOption(currentCustomer, 1570687200000))
+})
+
+describe('spies', () => {
+
+  it('Should call function to create booking option on DOM', () => {
+    hotel.bookings.newBookingOption(currentCustomer, 1570687200000)
+    expect(domUpdates.createBookingOption).to.have.been.called(1)
+  })
 })
 
 })
