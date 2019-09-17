@@ -117,7 +117,7 @@ export default {
   createBookingTool(availableRooms) {
     $('.create--customer--booking__input').prop('disabled', true)
     $('.create--customer--booking__input').after(
-      `<select class="room-selector">
+      `<select id="select--room--type" class="room-selector">
       ${availableRooms}
       </select>`
     )

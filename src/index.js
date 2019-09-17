@@ -99,6 +99,10 @@ $('.bookings--tool').on('click', (event) => {
     domUpdates.createBookingTool(hotel.bookings.createRoomOptions((hotel.bookings.findRoomTypesForToday(hotel.rooms, dateTodayMils))))
     domUpdates.createBookingSelectButton();
   }
+  if (event.target.className === 'room--confirmation__input') {
+    console.log($('#select--room--type').val())
+// create booking
+  }
 })
 
 const updateDomWithCurrentCustomer = () => {
