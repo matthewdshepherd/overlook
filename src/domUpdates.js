@@ -145,7 +145,7 @@ export default {
   appendRoomChoices(roomChoices) {
     roomChoices.forEach(booking => { 
       $('.room--options').append(
-        ` <container id="${booking.number}" class="room-options">
+        ` <div id="${booking.number}" class="individual--room--options">
           <p>Room Number: ${booking.number}</p>
           <p>Room Type: ${booking.roomType}</p>
           <p>Bidet: ${booking.bidet ? 'YES' : 'NO'}</p>
@@ -153,7 +153,7 @@ export default {
           <p>Number of Beds: ${booking.numBeds}</p>
           <p>Price per Night: ${booking.costPerNight}</p>
           <input type="button" class="select--room" value="Select Room ">
-        </container>`
+        </div>`
       )
     })
   }

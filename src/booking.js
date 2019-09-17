@@ -69,15 +69,15 @@ class Bookings {
   }
 
   findBookingForToday(customer, date) {
-    if (this.allBookingsOfCustomer(customer).find( booking => parseInt(booking.date) === date) === undefined) {
-      return false
-    } else {
+    if (this.allBookingsOfCustomer(customer).filter( booking => parseInt(booking.date) === date).length > 0) {
       return true
+    } else {
+      return false
     }
   }
 
   newBookingOption(customer, date) {
-    console.log('!this.findBookingForToday(customer, date)', !this.findBookingForToday(customer, date))
+    console.log('!this.findBookingForToday(customer, date)', this.findBookingForToday(customer, date))
     if (!this.findBookingForToday(customer, date)) {
       domUpdates.createBookingOption(date)
     }

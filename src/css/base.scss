@@ -9,6 +9,12 @@
 //   background-color: $primary-background;
 // }
 
+
+* {
+     box-sizing: border-box;
+     font-family: 'Open Sans', sans-serif;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -169,6 +175,7 @@
   flex-direction: column;
 }
 
+.individual--room--options,
 .current--customer--bookings__div {
   background-color: #0EBB97;
   color: #fff;
@@ -178,15 +185,11 @@
   margin: 10px 0;
 }
 
-.room-options {
+.individual--room--options {
   background-color: pink;
-  color: #fff;
-  border: 1px solid #1F2B3C;
-  border-radius: 10px;
-  width: 50%;
-  margin: 10px 0;
 }
 
+ 
 .bookings--tool {
   display: flex;
   flex-direction: column;
