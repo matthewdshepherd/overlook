@@ -73,11 +73,11 @@ $('.customer--search--results').on('click', (event) => {
   updateDomWithCurrentCustomer();
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer));
   domUpdates.removeCustomerNewBookingInput();
-  domUpdates.appendCustomerRoomService(hotel.roomService.getCustomersRoomServiceAllTime(hotel.currentCustomer));
-  domUpdates.appendCustomerRoomServiceTotal(hotel.roomService.getTotalSpendOnRoomService(hotel.currentCustomer))
+  domUpdates.appendCustomerRoomService;(hotel.roomService.getCustomersRoomServiceAllTime(hotel.currentCustomer));
+  domUpdates.appendCustomerRoomServiceTotal;(hotel.roomService.getTotalSpendOnRoomService(hotel.currentCustomer));
   hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils);
   $('.customer--result').remove();
-  $('.customer--search__input').val('')
+  $('.customer--search__input').val('');
 })
 
 $('.customer--create__buttton').on('click', () => {
@@ -122,6 +122,28 @@ $('.room--options').on('click', () => {
   domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMiliseconds(), hotel.rooms));
+  domUpdates.createFoodOrderSelector(hotel.roomService.createOrderOptions(hotel.roomService.getRoomServiceMenu()));
+  if (hotel.bookings.findBookingForToday(hotel.currentCustomer, dateTodayMils)) {
+    console.log('THIS IS DOING SOMETHING')
+  };
+})
+
+$('.orders--tool').on('click', (event) => {
+  console.log(hotel.roomService.roomServiceData.length)
+  if (event.target.className === "order--confirmation__input") {
+    const item = hotel.roomService.newRoomServiceOrder($('#select--order--type').val(), hotel.currentCustomer, dateTodayMiliseconds())
+    console.log(item)
+  }
+  console.log(hotel.roomService.roomServiceData.length)
+
+  // console.log($('#select--order--type').val())
+  // console.log(this.className)
+
+  // once event fires I need to createt order
+  // push that order into the orders
+  // append that order to the dom
+  // update dom/customers with current numbers
+
 })
 
 const updateDomWithCurrentCustomer = () => {

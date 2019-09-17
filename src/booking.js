@@ -79,6 +79,7 @@ class Bookings {
   newBookingOption(customer, date) {
     if (!this.findBookingForToday(customer, date)) {
       domUpdates.createBookingOption(date)
+    
     }
   }
 
@@ -90,7 +91,7 @@ class Bookings {
 
   findRoomTypesForToday(hotelRooms, date) {
     let availableRoomTypes = [];
-    const availableRooms = this.getRoomsNotBooked(hotelRooms, date)   
+    const availableRooms = this.getRoomsNotBooked(hotelRooms, date)  
     const residentialSuite = availableRooms.filter(room => room.roomType === "residential suite") 
     const juniorSuite = availableRooms.filter(room => room.roomType === "junior suite") 
     const suite = availableRooms.filter(room => room.roomType === "suite") 

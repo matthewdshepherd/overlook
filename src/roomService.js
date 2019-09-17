@@ -1,6 +1,7 @@
 class RoomService {
   constructor(roomServiceData) {
     this.roomServiceData = this.changeTimeFormat(roomServiceData)
+    this.getRoomServiceMenu;
   }
 
   changeTimeFormat(hotelData) {
@@ -46,12 +47,42 @@ class RoomService {
     const roomServiceKeys = Object.keys(roomService)
     const roomServiceValues = Object.values(roomService)
 
-    return roomServiceKeys.map( (item, i) => {
+    const menu = roomServiceKeys.map( (item, i) => {
       return { food: item, totalCost: roomServiceValues[i]}
+    })
+
+    this.getRoomServiceMenu = menu;
+    return menu
+  }
+
+  createOrderOptions(menu) {
+    return menu.map(item => {
+      return `<option value="${item.food}" class="${item.totalCost}">${item.food}</option>`
     })
   }
 
-  
+  newRoomServiceOrder(foodItem, currentCustomer, dateToday) {
+    const foodPrice = this.getFoodItemPrice(foodItem)
+    const newOrder = {
+      userID: parseInt(currentCustomer.id),
+      date: dateToday,
+      food: foodPrice.food,
+      totalCost: parseInt(foodPrice.totalCost)
+    }
+    this.roomServiceData.push(newOrder)
+    return newOrder
+  }
+
+  getFoodItemPrice(foodItem){
+    return this.getRoomServiceMenu.find( item => item.food === foodItem)
+  }
+
+//   {
+//   userID: 1,
+//     date: "2019/09/28",
+//       food: "Refined Rubber Sandwich",
+//         totalCost: 9.89
+// }
 
 }
 

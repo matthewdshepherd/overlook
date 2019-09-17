@@ -175,6 +175,15 @@ export default {
         </div>`
       )
     })
+  }, 
+
+  createFoodOrderSelector(foodItems) {
+    $('.orders--tool').append(
+      `<select id="select--order--type" class="room-selector">
+      ${foodItems}
+      </select>
+      <input class="order--confirmation__input" type="button" value="Confirm Order Choice">`
+    )
   }
 
 }
