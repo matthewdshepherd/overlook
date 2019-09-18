@@ -53,6 +53,7 @@ const openHotel = () => {
   domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
   domUpdates.appendAllRoomService(hotel.roomService.getRoomService(dateTodayMils));
   domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
+  hotel.roomService.getRoomServiceMenu()
 }
 
 $('.tabs-stage sectiongit ').hide();
@@ -74,6 +75,7 @@ $('.customer--search--results').on('click', (event) => {
   domUpdates.removeAvailableRooms();
   domUpdates.removeCustomerOrders();
   domUpdates.removePlaceHolder();
+  domUpdates.removeFoodServiceMenuInput();
   updateDomWithCurrentCustomer();
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer));
   domUpdates.removeCustomerNewBookingInput();
@@ -82,6 +84,9 @@ $('.customer--search--results').on('click', (event) => {
   hotel.bookings.newBookingOption(hotel.currentCustomer, dateTodayMils);
   $('.customer--result').remove();
   $('.customer--search__input').val('');
+  if (hotel.bookings.findBookingForToday(hotel.currentCustomer, dateTodayMiliseconds())) {
+    domUpdates.createFoodOrderSelector(hotel.roomService.createOrderOptions());
+  };
 })
 
 $('.customer--create__buttton').on('click', () => {
@@ -101,6 +106,7 @@ $('.customer--create').on('keydown', (event) => {
     domUpdates.removeCurrentBookings();
     domUpdates.removeCustomerOrders();
     domUpdates.removePlaceHolder();
+    domUpdates.removeFoodServiceMenuInput();
     domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer);
     domUpdates.createBookingOption(dateTodayMils)
     domUpdates.removeNewCustomerInput();
@@ -127,8 +133,8 @@ $('.room--options').on('click', () => {
   domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMiliseconds(), hotel.rooms));
-  domUpdates.createFoodOrderSelector(hotel.roomService.createOrderOptions(hotel.roomService.getRoomServiceMenu()));
-  if (hotel.bookings.findBookingForToday(hotel.currentCustomer, dateTodayMils)) {
+  domUpdates.createFoodOrderSelector(hotel.roomService.createOrderOptions());
+  if (hotel.bookings.findBookingForToday(hotel.currentCustomer, dateTodayMiliseconds())) {
     console.log('THIS IS DOING SOMETHING')
   };
 })
@@ -141,7 +147,6 @@ $('.orders--tool').on('click', (event) => {
     domUpdates.removeCustomerOrders();
     domUpdates.appendCustomerRoomService(hotel.roomService.getCustomersRoomServiceAllTime(hotel.currentCustomer));
     domUpdates.appendCustomerRoomServiceTotal(hotel.roomService.getTotalSpendOnRoomService(hotel.currentCustomer));
-    domUpdates.removeFoodServiceMenuInput();
   }
 
 

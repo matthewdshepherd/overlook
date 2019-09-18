@@ -29,7 +29,7 @@ class Bookings {
   }
 
   getPercentageOfRoomsBooked(date, hotelRooms) {
-    return (this.getBookingDataOfRoomsBooked(date).length / hotelRooms.length) * 100
+    return ((50 - this.getBookingDataOfRoomsBooked(date).length)/ hotelRooms.length) * 100
   }
 
   getRevenueFromBookedRooms(date, hotelRooms) { // booking Class

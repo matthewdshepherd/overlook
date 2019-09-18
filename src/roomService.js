@@ -55,8 +55,8 @@ class RoomService {
     return menu
   }
 
-  createOrderOptions(menu) {
-    return menu.map(item => {
+  createOrderOptions() {
+    return this.getRoomServiceMenu.map(item => {
       return `<option value="${item.food}" class="${item.totalCost}">${item.food}</option>`
     })
   }

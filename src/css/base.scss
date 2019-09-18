@@ -75,8 +75,6 @@ $background-grey: #8b9294;
 }
 
 .tabs-stage {
-  // border: 1px solid #cecfd5;
-  // border-radius: 0 0 6px 6px;
   border-top: 0;
   clear: both;
   padding: 24px 30px;
@@ -342,11 +340,18 @@ $background-grey: #8b9294;
 
 .create--customer--booking__input,
 .room--confirmation__input,
-#select--room--type {
+#select--room--type,
+#select--order--type,
+.order--confirmation__input {
   height: 40px;
   padding-left: 10px;
   margin-bottom: 15px;
   font-size: 20px;
+}
+
+#select--order--type,
+.order--confirmation__input {
+  margin-top: 10px;
 }
 
 .select--room {
@@ -355,4 +360,9 @@ $background-grey: #8b9294;
   align-self: center;
   margin-bottom: 10px;
   font-size: 20px;
+}
+
+.orders--tools--container {
+  align-content: centet;
+  text-align: center;
 }

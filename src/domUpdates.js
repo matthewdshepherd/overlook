@@ -89,7 +89,7 @@ export default {
   },
 
   removeFoodServiceMenuInput() {
-    $('.orders--tool').remove()
+    $('.orders--tool').empty()
   },
 
   removeCustomerNewBookingInput() {
