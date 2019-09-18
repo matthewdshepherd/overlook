@@ -192,6 +192,11 @@ export default {
       </select>
       <input class="order--confirmation__input" type="button" value="Confirm Order Choice">`
     )
+  },
+
+  clearOutNameInputFields() {
+    $('.customer--search__input').val('');
+    $('.customer--create--input').val('');
   }
 
 }
