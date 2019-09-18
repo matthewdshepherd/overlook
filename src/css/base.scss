@@ -1,284 +1,231 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-// $primary-background: pink;
-$primary-color--dark: #1F2B3C;
-$primary-color--light: #28364C;
 $active-color: #0EBB97;
 $background-grey: #8b9294;
+$primary-color--dark: #1F2B3C;
+$primary-color--light: #28364C;
+// $primary-background: pink;
 // * {
-//   border: 1px solid red;
-// }
-
+	//   border: 1px solid red;
+}
 // body {
-//   background-color: $primary-background;
-// }
-
-
+	//   background-color: $primary-background;
+}
 * {
-     box-sizing: border-box;
-     font-family: 'Open Sans', sans-serif;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
 }
-
 .color--tab {
-  background-color: $primary-color--light;
+	background-color: $primary-color--light;
 }
-
 .nav {
-  display: flex;
-  justify-content: space-between;
-  background-color: $primary-color--dark;
-  color: #ffffff;
-
+	background-color: $primary-color--dark;
+	color: #ffffff;
+	display: flex;
+	height: 200px;
+	justify-content: space-between;
 }
 .nav__section {
-  display: flex;
+	display: flex;
 }
-
 .nav__title--date {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
-
 .nav__section__div--tab {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 5px;
-  width: 125px;
-  justify-content: space-evenly;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	padding: 0 5px;
+	width: 125px;
 }
-
 .tabs-nav div:first-child a {
-  border-right: 0;
-  border-top-left-radius: 6px;
+	border-right: 0;
+	border-top-left-radius: 6px;
 }
-
 .tabs-nav div:last-child a {
-  border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
 }
-
 .tab-active a {
-  background-color: $active-color;
-  // background: #fff;
-  border-bottom-color: $primary-color--dark;
-  // color: #2db34a;
-  cursor: default;
+	background-color: $active-color;
+	border-bottom-color: $primary-color--dark;
+	cursor: default;
 }
-
 .tab-active {
-  background-color: $active-color;
-  // background: #fff;
-  border-bottom-color: $primary-color--dark;
-  // color: #2db34a;
-  cursor: default;
+	background-color: $active-color;
+	border-bottom-color: $primary-color--dark;
+	cursor: default;
 }
-
 .tabs-stage {
-  border-top: 0;
-  clear: both;
-  padding: 24px 30px;
-  position: relative;
-  top: -1px;
+	border-top: 0;
+	clear: both;
+	padding: 24px 30px;
+	position: relative;
+	top: -1px;
 }
-
 .nav__h1--title {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
+	align-items: center;
+	display: flex;
+	margin-left: 20px;
 }
-
-
-
 .nav__section__div--img {
-    width: 80px;
-    height: 80px;
-    margin: 0;
+	height: 80px;
+	margin: 0;
+	width: 80px;
 }
-
 .nav__section__div--tab--title {
-  text-decoration: none;
-  color: #fff;
+	color: #fff;
+	text-decoration: none;
 }
-
 .nav__section__div--tab:hover {
-  color: $active-color;
+	color: $active-color;
 }
-
 .user {
-  width: 10%;
-  min-width: 300px;
-  max-width: 500px;
-  padding: 15px;
+	max-width: 500px;
+	min-width: 300px;
+	padding: 15px;
+	width: 10%;
 }
-
 .user--image {
-  height: 20px;
+	height: 20px;
 }
-
 .user--info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
-
 .current--customer,
 .current--user {
-  display: flex;
-  margin: none;
+	display: flex;
+	margin: none;
 }
-
 .current--customer--title {
-  font-size: 20px;
+	font-size: 20px;
 }
-
 .current--customer--name {
-  font-size: 35px;
+	font-size: 35px;
+	margin: 0;
 }
-
-
-
-.user--name{
-  font-size: 25px;
-  width: 100%;
-  padding: 0 8px;
+.user--name {
+	font-size: 25px;
+	padding: 0 8px;
+	width: 100%;
 }
-
 .customer {
-  width: 100%;
-  display: flex;
+	display: flex;
+	width: 100%;
 }
-
 .customer--search__input {
-  width: 80%;
-  height: 40px;
-  border: none;
-  border-bottom: 1px solid $primary-color--light;
-  border-left: 1px solid $primary-color--light;
-  padding-left: 10px;
-  font-size: 15px;
+	border: none;
+	border-bottom: 1px solid $primary-color--light;
+	border-left: 1px solid $primary-color--light;
+	font-size: 15px;
+	height: 40px;
+	padding-left: 10px;
+	width: 80%;
 }
-
 .customer--create__buttton {
-  width: 20%;
-  border: none;
-  border-bottom: 1px solid $primary-color--light;
-  border-right: 1px solid $primary-color--light;
-  font-size: 15px;
+	border: none;
+	border-bottom: 1px solid $primary-color--light;
+	border-right: 1px solid $primary-color--light;
+	font-size: 15px;
+	width: 20%;
 }
-
 .nav__section__div--logout {
-  display: flex;
-  align-items: center;
+	align-items: center;
+	display: flex;
 }
-
 .customer--search--create--box {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
-
 .customer--search--results {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  position: absolute;
-  z-index: 10;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	text-decoration: none;
+	z-index: 10;
 }
-
 .customer--result {
-  width: 300px;
-  font-size: 30px;
+	font-size: 30px;
+	width: 300px;
 }
-
 .customer--create--input {
-  width: 250px;
-  height: 40px;
-  padding-left: 10px;
-  font-size: 15px;
+	font-size: 15px;
+	height: 40px;
+	padding-left: 10px;
+	width: 250px;
 }
-
 .customer--create {
-  float: right;
+	float: right;
 }
-
 .current--customer--bookings {
-  background-color: $background-grey;
-  display: flex;
-  flex-direction: column;
-  // width: 45%;
-  align-items: center;
-  border: 1px solid $active-color;
-  border-radius: 10px;
-  margin-top: 20px;
+	align-items: center;
+	background-color: $background-grey;
+	border: 1px solid $active-color;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	padding: 0 10px;
 }
-
 .individual--room--options,
 .current--customer--bookings__div {
-  background-color: $primary-color--light;
-  color: #fff;
-  border: 1px solid $primary-color--dark;
-  border-radius: 10px;
-  width: 50%;
-  margin: 10px 0;
-  padding-left: 10px;
-  
+	background-color: $primary-color--light;
+	border: 1px solid $primary-color--dark;
+	border-radius: 10px;
+	color: #fff;
+	margin: 10px 0;
+	text-align: center;
+	width: 70%;
 }
-
 .orders--customer--item,
 .current--customer--orders {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
-
 .individual--room--options {
-  background-color: pink;
-  width: 100%
+	background-color: pink;
 }
- 
 .bookings--tool {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
-
 .title--heading {
-  color: $primary-color--light;
-  font-size: 40px;
-  font-weight: 800;
+	color: $primary-color--light;
+	font-size: 40px;
+	font-weight: 800;
 }
-
 .orders--container,
 .dashboard--container {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-  border: 2px solid $active-color;
-  border-radius: 10px;
-  width: 36%;
-  background-color: $background-grey;
-  align-items: center;
+	align-items: center;
+	background-color: $background-grey;
+	border: 2px solid $active-color;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+	width: 36%;
 }
-
 .bookings--container {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-  border: 2px solid $active-color;
-  border-radius: 10px;
-  // width: 36%;
-  background-color: $background-grey;
-  align-items: center;
-  padding: 0 10px;
+	align-items: center;
+	background-color: $background-grey;
+	border: 2px solid $active-color;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+	padding: 0 10px;
 }
-
 .orders__text,
 .orders__text--noinput,
 .dashboard__text,
-.bookings__text  {
-  border-bottom: 1px solid $primary-color--light;
-  padding-bottom: 5px;
+.bookings__text {
+	border-bottom: 1px solid $primary-color--light;
+	padding-bottom: 5px;
 }
-
 .current--customer--past--orders,
 .orders__text--allRoomService,
 .current--customer--total--spent,
@@ -287,82 +234,64 @@ $background-grey: #8b9294;
 .dashboard__text--roomsavil,
 .mostpop,
 .leastpop {
-  font-size: 50px;
-  margin: 0;
-  padding-bottom: 10px;
+	font-size: 50px;
+	margin: 0;
+	padding-bottom: 10px;
 }
-
 .bookings__text--current--bookings, 
 .customer--title--orders {
-  border-bottom: 1px solid $primary-color--light;
-  padding-bottom: 5px;
-  font-size: 30px;
-  color: $primary-color--light;
+	border-bottom: 1px solid $primary-color--light;
+	color: $primary-color--light;
+	font-size: 30px;
+	padding-bottom: 5px;
 }
-
 .bookings__text--current--bookings {
-  color: $primary-color--dark;
+	color: $primary-color--dark;
 }
-
 .name {
-  border-bottom: 1px solid $primary-color--light;
-  padding-bottom: 5px;
-  width: 400px;
+	border-bottom: 1px solid $primary-color--light;
+	padding-bottom: 5px;
+	width: 400px;
 }
-
 .orders--customer--item {
-  border: 1px solid $primary-color--dark;
-  border-radius: 10px;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  background-color: $primary-color--light;
-  color: #fff;
+	background-color: $primary-color--light;
+	border: 1px solid $primary-color--dark;
+	border-radius: 10px;
+	color: #fff;
+	margin-bottom: 10px;
+	padding-left: 10px;
 }
-
-.current--customer--bookings {
-  padding: 0 10px;
-}
-
 #bookings {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
-
 .bookings--main--split {
-  display: flex;
-  align-content: space-between;
-  justify-content: space-evenly;
+	align-content: space-between;
+	display: flex;
+	justify-content: space-evenly;
 }
-
-.bookings--tool {
-  width: 100%;
-}
-
 .create--customer--booking__input,
 .room--confirmation__input,
 #select--room--type,
 #select--order--type,
 .order--confirmation__input {
-  height: 40px;
-  padding-left: 10px;
-  margin-bottom: 15px;
-  font-size: 20px;
+	font-size: 20px;
+	height: 40px;
+	margin-bottom: 15px;
+	padding-left: 10px;
 }
-
 #select--order--type,
 .order--confirmation__input {
-  margin-top: 10px;
+	margin-top: 10px;
 }
-
 .select--room {
-  width: 98%;
-  border-radius: 10px;
-  align-self: center;
-  margin-bottom: 10px;
-  font-size: 20px;
+	align-self: center;
+	border-radius: 10px;
+	font-size: 20px;
+	margin-bottom: 10px;
+	width: 98%;
 }
-
 .orders--tools--container {
-  align-content: centet;
-  text-align: center;
+	align-content: centet;
+	text-align: center;
 }

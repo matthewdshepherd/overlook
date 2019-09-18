@@ -154,8 +154,6 @@ $('.orders--tool').on('click', (event) => {
     domUpdates.appendCustomerRoomService(hotel.roomService.getCustomersRoomServiceAllTime(hotel.currentCustomer));
     domUpdates.appendCustomerRoomServiceTotal(hotel.roomService.getTotalSpendOnRoomService(hotel.currentCustomer));
   }
-
-
 })
 
 const updateDomWithCurrentCustomer = () => {

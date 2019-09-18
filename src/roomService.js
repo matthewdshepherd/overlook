@@ -22,7 +22,6 @@ class RoomService {
     return this.roomServiceData.filter(item => item.date === date)
   }
 
-  // - Total $$ spent for a specific day for Room Service
   getCustomersRoomServiceAllTime(currentCustomer) {
     console.log('LINE 27 getCustomersRoomServiceAllTime')
     return this.roomServiceData.filter(item => item.userID === currentCustomer.id)
@@ -48,11 +47,9 @@ class RoomService {
     }, {})
     const roomServiceKeys = Object.keys(roomService)
     const roomServiceValues = Object.values(roomService)
-
     const menu = roomServiceKeys.map( (item, i) => {
       return { food: item, totalCost: roomServiceValues[i]}
     })
-
     this.getRoomServiceMenu = menu;
     return menu
   }
@@ -78,7 +75,6 @@ class RoomService {
   getFoodItemPrice(foodItem){
     return this.getRoomServiceMenu.find( item => item.food === foodItem)
   }
-
 }
 
 export default RoomService

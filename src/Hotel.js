@@ -1,4 +1,3 @@
-// import domUpdates from "./domUpdates";
 import Bookings from './Booking';
 import RoomService from './roomService';
 
