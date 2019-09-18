@@ -50,7 +50,7 @@ const openHotel = () => {
   var dateTodayMils = dateTodayMiliseconds()
   domUpdates.appendAvailableRoomsToDashboard(hotel.bookings.getAmountOfRoomsAvailable(dateTodayMils, hotel.rooms));
   domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMils, hotel.rooms));
-  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMils, hotel.rooms));
+  domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.appendAllRoomService(hotel.roomService.getRoomService(dateTodayMils));
   domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
   hotel.roomService.getRoomServiceMenu()
@@ -168,7 +168,7 @@ const dateInString = () => {
 }
 
 const getTotalRevenue = (date, hotelRooms) => {
-  return hotel.bookings.getRevenueFromBookedRooms(date, hotelRooms) + hotel.roomService.getRevenueFromRoomservice(date)
+  return (parseFloat(hotel.bookings.getRevenueFromBookedRooms(date, hotelRooms)) + parseFloat(hotel.roomService.getRevenueFromRoomservice(date)))
 }
 
 const searchFilter = (event) => {

@@ -24,10 +24,12 @@ class RoomService {
 
   // - Total $$ spent for a specific day for Room Service
   getCustomersRoomServiceAllTime(currentCustomer) {
+    console.log('LINE 27 getCustomersRoomServiceAllTime')
     return this.roomServiceData.filter(item => item.userID === currentCustomer.id)
   }
 
   getTotalSpendOnRoomService(currentCustomer) {
+    console.log('LINE 32 getTotalSpendOnRoomService')
     return this.getCustomersRoomServiceAllTime(currentCustomer).reduce( (total, meal) => {
       return total += meal.totalCost
     }, 0)
@@ -67,7 +69,7 @@ class RoomService {
       userID: parseInt(currentCustomer.id),
       date: dateToday,
       food: foodPrice.food,
-      totalCost: Number.parseFloat(foodPrice.totalCost).toFixed(2)
+      totalCost: parseFloat(foodPrice.totalCost)
     }
     this.roomServiceData.push(newOrder)
     return newOrder
@@ -76,13 +78,6 @@ class RoomService {
   getFoodItemPrice(foodItem){
     return this.getRoomServiceMenu.find( item => item.food === foodItem)
   }
-
-//   {
-//   userID: 1,
-//     date: "2019/09/28",
-//       food: "Refined Rubber Sandwich",
-//         totalCost: 9.89
-// }
 
 }
 
