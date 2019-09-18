@@ -76,7 +76,7 @@ $('.customer--search--results').on('click', (event) => {
   domUpdates.removeCustomerOrders();
   domUpdates.removePlaceHolder();
   domUpdates.removeFoodServiceMenuInput();
-  domUpdates.clearOutNameInputFields();
+  domUpdates.clearOutNameCreateInputFields();
   updateDomWithCurrentCustomer();
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer));
   domUpdates.removeCustomerNewBookingInput();
@@ -93,11 +93,18 @@ $('.customer--search--results').on('click', (event) => {
 $('.customer--create__buttton').on('click', () => {
   domUpdates.buildAddCustomerInputField();
   domUpdates.focusInNewCustomerInputField();
+  domUpdates.removeSearchedNames();
+  domUpdates.clearOutNameSearchInputFields();
+})
+
+$('.customer--search__input').on('click keypress', () => {
+  domUpdates.removeNewCustomerInput();
+  console.log('this works here line 102')
 })
 
 $('.customer--create').on('keydown', (event) => {
   if (event.keyCode === 13 && $('.customer--create--input').val() === '') {
-    domUpdates.removeNewCustomerInput();
+    domUpdates.removeNewCustomerInputAndDisable();
     domUpdates.activateAddNewCustomerButton();
   } else if (event.keyCode === 13) {
     hotel.currentCustomer = {id: hotel.customers.length + 1, name: $('.customer--create--input').val()}
@@ -108,10 +115,10 @@ $('.customer--create').on('keydown', (event) => {
     domUpdates.removeCustomerOrders();
     domUpdates.removePlaceHolder();
     domUpdates.removeFoodServiceMenuInput();
-    domUpdates.clearOutNameInputFields();
+    // domUpdates.clearOutNameInputFields();
     domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer);
     domUpdates.createBookingOption(dateTodayMils)
-    domUpdates.removeNewCustomerInput();
+    domUpdates.removeNewCustomerInputAndDisable();
     domUpdates.activateAddNewCustomerButton();
   }
 })
@@ -136,9 +143,6 @@ $('.room--options').on('click', () => {
   domUpdates.appendPercentageOfBookedRooms(hotel.bookings.getPercentageOfRoomsBooked(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.appendTotalRevenue(getTotalRevenue(dateTodayMiliseconds(), hotel.rooms));
   domUpdates.createFoodOrderSelector(hotel.roomService.createOrderOptions());
-  if (hotel.bookings.findBookingForToday(hotel.currentCustomer, dateTodayMiliseconds())) {
-    console.log('THIS IS DOING SOMETHING')
-  };
 })
 
 $('.orders--tool').on('click', (event) => {
@@ -183,6 +187,6 @@ const searchFilter = (event) => {
     domUpdates.appendCustomerSearch(customer);
   });
   if (results.length > 70) {
-    $('.customer--result').remove();
+    domUpdates.removeSearchedNames();
   }
 }

@@ -33,7 +33,6 @@ class Bookings {
   }
 
   getRevenueFromBookedRooms(date, hotelRooms) {
-    console.log('getRevenueFromBookedRooms', date)
     return Math.round(this.getBookingDataOfRoomsBooked(date).map(bookedRoom => bookedRoom.roomNumber).reduce((totalRevenue, roomNumber) => {
       hotelRooms.forEach(room => {
         if (roomNumber === room.number) {

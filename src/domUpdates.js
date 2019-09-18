@@ -84,8 +84,13 @@ export default {
     $('.customer--create__buttton').prop('disabled', true)
   },
 
-  removeNewCustomerInput() {
+  removeNewCustomerInputAndDisable() {
     $('.customer--create--input').focusout().remove()
+  },
+
+  removeNewCustomerInput() {
+    $('.customer--create--input').remove()
+    $('.customer--create__buttton').prop('disabled', false)
   },
 
   removeFoodServiceMenuInput() {
@@ -194,9 +199,16 @@ export default {
     )
   },
 
-  clearOutNameInputFields() {
+  clearOutNameSearchInputFields() {
     $('.customer--search__input').val('');
+  },
+
+  clearOutNameCreateInputFields() {
     $('.customer--create--input').val('');
+  },
+
+  removeSearchedNames() {
+    $('.customer--result').remove();
   }
 
 }
