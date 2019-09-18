@@ -1,6 +1,9 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 // $primary-background: pink;
-
+$primary-color--dark: #1F2B3C;
+$primary-color--light: #28364C;
+$active-color: #0EBB97;
+$background-grey: #8b9294;
 // * {
 //   border: 1px solid red;
 // }
@@ -16,13 +19,13 @@
 }
 
 .color--tab {
-  background-color: #28364C;
+  background-color: $primary-color--light;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: #1F2B3C;
+  background-color: $primary-color--dark;
   color: #ffffff;
 
 }
@@ -56,17 +59,17 @@
 }
 
 .tab-active a {
-  background-color: #0EBB97;
+  background-color: $active-color;
   // background: #fff;
-  border-bottom-color: #1F2B3C;
+  border-bottom-color: $primary-color--dark;
   // color: #2db34a;
   cursor: default;
 }
 
 .tab-active {
-  background-color: #0EBB97;
+  background-color: $active-color;
   // background: #fff;
-  border-bottom-color: #1F2B3C;
+  border-bottom-color: $primary-color--dark;
   // color: #2db34a;
   cursor: default;
 }
@@ -101,14 +104,13 @@
 }
 
 .nav__section__div--tab:hover {
-  color: #0EBB97;
+  color: $active-color;
 }
 
 .user {
   width: 10%;
   min-width: 300px;
   max-width: 500px;
-  justify-content: space-between;
   padding: 15px;
 }
 
@@ -128,6 +130,16 @@
   margin: none;
 }
 
+.current--customer--title {
+  font-size: 20px;
+}
+
+.current--customer--name {
+  font-size: 35px;
+}
+
+
+
 .user--name{
   font-size: 25px;
   width: 100%;
@@ -143,8 +155,8 @@
   width: 80%;
   height: 40px;
   border: none;
-  border-bottom: 1px solid #28364C;
-  border-left: 1px solid #28364C;
+  border-bottom: 1px solid $primary-color--light;
+  border-left: 1px solid $primary-color--light;
   padding-left: 10px;
   font-size: 15px;
 }
@@ -152,8 +164,8 @@
 .customer--create__buttton {
   width: 20%;
   border: none;
-  border-bottom: 1px solid #28364C;
-  border-right: 1px solid #28364C;
+  border-bottom: 1px solid $primary-color--light;
+  border-right: 1px solid $primary-color--light;
   font-size: 15px;
 }
 
@@ -179,9 +191,12 @@
   width: 300px;
   font-size: 30px;
 }
+
 .customer--create--input {
-  width: 200px;
+  width: 250px;
   height: 40px;
+  padding-left: 10px;
+  font-size: 15px;
 }
 
 .customer--create {
@@ -189,18 +204,26 @@
 }
 
 .current--customer--bookings {
+  background-color: $background-grey;
   display: flex;
   flex-direction: column;
+  // width: 45%;
+  align-items: center;
+  border: 1px solid $active-color;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .individual--room--options,
 .current--customer--bookings__div {
-  background-color: #0EBB97;
+  background-color: $primary-color--light;
   color: #fff;
-  border: 1px solid #1F2B3C;
+  border: 1px solid $primary-color--dark;
   border-radius: 10px;
   width: 50%;
   margin: 10px 0;
+  padding-left: 10px;
+  
 }
 
 .orders--customer--item,
@@ -211,8 +234,8 @@
 
 .individual--room--options {
   background-color: pink;
+  width: 100%
 }
-
  
 .bookings--tool {
   display: flex;
@@ -220,3 +243,116 @@
   width: 300px;
 }
 
+.title--heading {
+  color: $primary-color--light;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.orders--container,
+.dashboard--container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  border: 2px solid $active-color;
+  border-radius: 10px;
+  width: 36%;
+  background-color: $background-grey;
+  align-items: center;
+}
+
+.bookings--container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  border: 2px solid $active-color;
+  border-radius: 10px;
+  // width: 36%;
+  background-color: $background-grey;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.orders__text,
+.orders__text--noinput,
+.dashboard__text,
+.bookings__text  {
+  border-bottom: 1px solid $primary-color--light;
+  padding-bottom: 5px;
+}
+
+.current--customer--past--orders,
+.orders__text--allRoomService,
+.current--customer--total--spent,
+.dashboard__text--totalrevenue,
+.dashboard__text--percentbooked,
+.dashboard__text--roomsavil,
+.mostpop,
+.leastpop {
+  font-size: 50px;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.bookings__text--current--bookings, 
+.customer--title--orders {
+  border-bottom: 1px solid $primary-color--light;
+  padding-bottom: 5px;
+  font-size: 30px;
+  color: $primary-color--light;
+}
+
+.bookings__text--current--bookings {
+  color: $primary-color--dark;
+}
+
+.name {
+  border-bottom: 1px solid $primary-color--light;
+  padding-bottom: 5px;
+  width: 400px;
+}
+
+.orders--customer--item {
+  border: 1px solid $primary-color--dark;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background-color: $primary-color--light;
+  color: #fff;
+}
+
+.current--customer--bookings {
+  padding: 0 10px;
+}
+
+#bookings {
+  display: flex;
+  flex-direction: column;
+}
+
+.bookings--main--split {
+  display: flex;
+  align-content: space-between;
+  justify-content: space-evenly;
+}
+
+.bookings--tool {
+  width: 100%;
+}
+
+.create--customer--booking__input,
+.room--confirmation__input,
+#select--room--type {
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.select--room {
+  width: 98%;
+  border-radius: 10px;
+  align-self: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}

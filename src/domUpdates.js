@@ -56,13 +56,13 @@ export default {
     const mostPopularDates = dates[0].map( day => new Date(parseInt(day)).toString().split(' ').splice(0, 4).join(' '))
     const leasstPopularDates = dates[1].map(day => new Date(parseInt(day)).toString().split(' ').splice(0, 4).join(' '))
     mostPopularDates.forEach( date => {
-      $('.bookings__text--mostpop').append(
-        `<span class="mostpop">${date} | </span>`
+      $('.popular--booking').after(
+        `<p class="mostpop">${date}</p>`
       )
     })
     leasstPopularDates.forEach(date => {
       $('.bookings__text--leastpop').append(
-        `<span class="leastpop">${date} | </span>`
+        `<p class="leastpop">${date}</p>`
       )
     })
   },
@@ -158,11 +158,15 @@ export default {
 
   removeCustomerOrders() {
     $('.current--customer--orders').empty()
-    $('.current--customer--total--spent').text('No Customer Selected')
+    $('.current--customer--total--spent').text('N/A')
   },
 
   removeCurrentBookings() {
     $('.current--customer--bookings__div').remove()
+  },
+
+  removePlaceHolder() {
+    $('.current--customer--past--orders').remove()
   },
 
   appendRoomChoices(roomChoices) {

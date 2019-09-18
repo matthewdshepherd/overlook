@@ -73,6 +73,7 @@ $('.customer--search--results').on('click', (event) => {
   domUpdates.removeBookingsTool();
   domUpdates.removeAvailableRooms();
   domUpdates.removeCustomerOrders();
+  domUpdates.removePlaceHolder();
   updateDomWithCurrentCustomer();
   domUpdates.appendCustomerBookingsToDOM(hotel.bookings.allBookingsOfCustomer(hotel.currentCustomer));
   domUpdates.removeCustomerNewBookingInput();
@@ -99,6 +100,7 @@ $('.customer--create').on('keydown', (event) => {
     domUpdates.removeAvailableRooms();
     domUpdates.removeCurrentBookings();
     domUpdates.removeCustomerOrders();
+    domUpdates.removePlaceHolder();
     domUpdates.appendCurrentCusomterNameToDom(hotel.currentCustomer);
     domUpdates.createBookingOption(dateTodayMils)
     domUpdates.removeNewCustomerInput();

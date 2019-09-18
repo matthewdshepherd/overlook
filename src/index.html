@@ -29,17 +29,10 @@
       </section>
       <section class="nav__section user color--tab">
         <div class="nav__section__div user--info">
-          <container class="current--user">
-            <img class="nav__section__div--img user--image" src="images/Luna-StayMore.png" alt="user image">
-            <p class="nav__section__div--img user--name">Luna Langlois</p>
-          </container>
           <container class="current--customer"></container>
-            <p>Current Customer:</p> 
+            <p class="current--customer--title">Current Customer:</p> 
             <p class="current--customer--name">No Customer Selected</p>
           </container></container>
-        </div>
-        <div class="nav__section__div--logout">
-          <p class="nav__section__div__p--logout>LOG OUT">LOG OUT</p>
         </div>
       </section>
     </header>
@@ -58,37 +51,69 @@
       </div>
       <div class="tabs-stage">
         <div id="dashboard">
-          <h2>DASHBOARD</h2>
-          <p class="dashboard__text">All the Dashboard.</p>
-          <p class="dashboard__text">Total Rooms Available for Today: <span class="dashboard__text--roomsavil"></span></p>
-          <p class="dashboard__text">Percentage of Rooms Booked for Today: <span class="dashboard__text--percentbooked"></span>%</p>
-          <p class="dashboard__text">Total Revenue for Today: $<span class="dashboard__text--totalrevenue"></span></p>
+          <h2 class="title--heading">DASHBOARD</h2>
+          <container class="dashboard--container">
+            <p class="dashboard__text">Total Rooms Available for Today:</p> 
+            <p class="dashboard__text--roomsavil"></p>
+          </container>
+          <container class="dashboard--container">
+           <p class="dashboard__text">Percentage of Rooms Booked for Today: </p>
+           <p class="dashboard__text--percentbooked"><span>%</span></p>
+          </container>
+          <container class="dashboard--container">
+            <p class="dashboard__text">Total Revenue for Today:</p>
+            <p class="dashboard__text--totalrevenue"></p>
+          </container>
         </div>
         <div id="customer">
-          <h2>CUSTOMER</h2>
-          <p>Current Customer: <span class="current--customer--name">No Customer Selected</span></p>
+          <h2 class="title--heading">CUSTOMER</h2>
+          <p>Current Customer: </p>
+          <p class="current--customer--name name">No Customer Selected</p>
         </div>
         <div id="orders">
-          <h2>ORDERS</h2>
-          <p class="orders__text">Total Orders for Today: <span class="orders__text--allRoomService"></span></p>
-          <p>Current Customer: <span class="current--customer--name">No Customer Selected</span></p>
-          <p>Total Spent: $<span class="current--customer--total--spent">NO Customer Selected</span></p>
-          <p>Past Orders:</p>
-          <container class="current--customer--orders"></container>
-          <container class="orders--tool"></container>
-          <container class="orders--options"></container>
+          <h2 class="title--heading">ORDERS</h2>
+          <container class="orders--container">
+           <p class="orders__text">Total Orders for Today: </p>
+           <p class="orders__text--allRoomService"></p>
+          </container>
+          <p class="orders__text--noinput customer--title--orders">Current Customer: </p>
+          <container class="orders--container">
+           <p class="current--customer--name">No Customer Selected</p>
+          </container>
+          <container class="orders--container">
+           <p class="orders__text--noinput">Total Spent: </p>
+           <p class="current--customer--total--spent">N/A</p>
+          </container>
+          <container class="orders--container">
+          <p class="orders__text--noinput">Past Orders:</p>
+          <p class="current--customer--past--orders">N/A</p>
+            <container class="current--customer--orders"></container>
+            <container class="orders--tool"></container>
+            <container class="orders--options"></container>
+          </container>
         </div>
         <div id="bookings">
-          <h2>BOOKINGS</h2>
-          <p class="bookings__text">Here is where we would display the bookings!!</p>
-          <p class="bookings__text ">Most popular booking date(s): <span class="bookings__text--mostpop"></span></p>
-          <p class="bookings__text">Date(s) with least amount of bookings: <span class="bookings__text--leastpop"></span></p>
-          <p>Current Customer: <span class="current--customer--name">No Customer Selected</span></p>
-          <container class="bookings--tool"></container>
-          <container class="room--options"></container>
-          <container class="current--customer--bookings">
-            <p>Current Customer's Bookings:</p>
-          </container>
+          <h2 class="title--heading">BOOKINGS</h2>
+          <continer class="bookings--main--split">
+            <container class="bookings--split--container">
+              <container class="bookings--container">
+                <p class="bookings__text popular--booking">Most popular booking date(s): </p>
+                <p class="bookings__text--mostpop"></p>
+              </container>
+              <container class="bookings--container">
+                <p class="bookings__text">Date(s) with least amount of bookings: </p>
+                <p class="bookings__text--leastpop"></p>
+              </container>
+            </container>
+
+            <container class="bookings--split--container">
+              <container class="bookings--tool"></container>
+              <container class="room--options"></container>
+              <container class="current--customer--bookings">
+                <p class="bookings__text--current--bookings">Current Customer's Bookings:</p>
+              </container>
+            </container>
+          </continer>
         </div>
       </div>
     </main>
