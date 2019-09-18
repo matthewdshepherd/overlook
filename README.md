@@ -25,8 +25,7 @@
 - Overlook allows us to design and create the UI/UX
   
 ### Actual:
-
-  <img src="./src/images/JeffQuestBackgroundProgression.jpg" alt="GIF app run throuugh">
+  <img src="./src/images/OverLookWalkThrough.gif" alt="GIF app run throuugh">
 
 ## Features
 
