@@ -123,7 +123,8 @@ $primary-color--light: #28364C;
 .customer--create__buttton {
 	border: none;
 	border-bottom: 1px solid $primary-color--light;
-	border-right: 1px solid $primary-color--light;
+  border-right: 1px solid $primary-color--light;
+  cursor: pointer;
 	font-size: 15px;
 	width: 20%;
 }
@@ -143,6 +144,7 @@ $primary-color--light: #28364C;
 	z-index: 10;
 }
 .customer--result {
+  cursor: pointer;
 	font-size: 30px;
 	width: 300px;
 }

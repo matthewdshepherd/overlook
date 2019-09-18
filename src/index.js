@@ -99,7 +99,6 @@ $('.customer--create__buttton').on('click', () => {
 
 $('.customer--search__input').on('click keypress', () => {
   domUpdates.removeNewCustomerInput();
-  console.log('this works here line 102')
 })
 
 $('.customer--create').on('keydown', (event) => {
@@ -120,6 +119,13 @@ $('.customer--create').on('keydown', (event) => {
     domUpdates.createBookingOption(dateTodayMils)
     domUpdates.removeNewCustomerInputAndDisable();
     domUpdates.activateAddNewCustomerButton();
+  }
+})
+
+$('.tabs-stage').on('click', (event) => {
+  if (event.target.className === 'tabs-stage') {
+    domUpdates.removeNewCustomerInput();
+    domUpdates.removeSearchedNames();
   }
 })
 
