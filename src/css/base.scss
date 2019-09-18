@@ -15,6 +15,10 @@
      font-family: 'Open Sans', sans-serif;
 }
 
+.color--tab {
+  background-color: #28364C;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -52,9 +56,18 @@
 }
 
 .tab-active a {
-  background: #fff;
-  border-bottom-color: transparent;
-  color: #2db34a;
+  background-color: #0EBB97;
+  // background: #fff;
+  border-bottom-color: #1F2B3C;
+  // color: #2db34a;
+  cursor: default;
+}
+
+.tab-active {
+  background-color: #0EBB97;
+  // background: #fff;
+  border-bottom-color: #1F2B3C;
+  // color: #2db34a;
   cursor: default;
 }
 
@@ -74,13 +87,12 @@
   align-items: center;
 }
 
-.color--tab {
-  background-color: #28364C;
-}
+
 
 .nav__section__div--img {
-  width: 40px;
-  margin: 15px 0 0 0;
+    width: 80px;
+    height: 80px;
+    margin: 0;
 }
 
 .nav__section__div--tab--title {
@@ -131,12 +143,18 @@
   width: 80%;
   height: 40px;
   border: none;
+  border-bottom: 1px solid #28364C;
+  border-left: 1px solid #28364C;
+  padding-left: 10px;
+  font-size: 15px;
 }
 
 .customer--create__buttton {
   width: 20%;
-  // height: 20px;
   border: none;
+  border-bottom: 1px solid #28364C;
+  border-right: 1px solid #28364C;
+  font-size: 15px;
 }
 
 .nav__section__div--logout {

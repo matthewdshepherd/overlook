@@ -55,9 +55,13 @@ const openHotel = () => {
   domUpdates.appendPopularBookingDates(hotel.bookings.getMostBookedDay())
 }
 
+$('.tabs-stage sectiongit ').hide();
+$('.tabs-stage section:first').show();
+$('.tabs-nav container:first').addClass('tab-active');
+
 $('.tabs-nav a').on('click', function (event) {
   event.preventDefault();
-  $('.tabs-nav div').removeClass('tab-active');
+  $('.tabs-nav container').removeClass('tab-active');
   $(this).parent().addClass('tab-active');
   $('.tabs-stage div').hide();
   $($(this).attr('href')).show();
