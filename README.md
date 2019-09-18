@@ -51,11 +51,7 @@
 
 ## Take It For A Spin
 
-View <a href=https://matthewdshepherd.github.io/check-yo-self/>here</a> on GitHub.
-
-OR 
-
-Download and unzip the check-yo-self.zip file, and open the index.html file to view the website.
+View <a href=http://matthewdshepherd.github.io/overlookf/>here</a> on GitHub.
 
 ## Why'd I Do This?
 
