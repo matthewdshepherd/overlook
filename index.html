@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Stay More</title>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav__title--date">
+        <h1 class="nav__h1--title">StayMore</h1>
+        <p class="date--today">Monday Things</p>
+      </div>
+      <section class="nav__section tabs-nav">
+        <container class="nav__section__div--tab color--tab dashboard-tab">
+          <img class="nav__section__div--img" src="./images/dashboard.svg" alt="dashboard icon">
+          <a class="nav__section__div--tab--title" href="#dashboard">DASHBOARD</a>
+        </container>
+        <container class="nav__section__div--tab customer-tab">
+          <img class="nav__section__div--img" src="./images/customer.svg" alt="customer icon">
+          <a class="nav__section__div--tab--title" href="#customer">CUSTOMER</a>
+        </container>
+        <container class="nav__section__div--tab color--tab orders-tab">
+          <img class="nav__section__div--img" href="#orders" src="./images/orders.svg" alt="orders icon">
+          <a class="nav__section__div--tab--title" href="#orders">ORDERS</a>
+        </container>
+        <container class="nav__section__div--tab room-tab">
+          <img class="nav__section__div--img" src="./images/room.svg" alt="room icon">
+          <a class="nav__section__div--tab--title" href="#bookings">BOOKINGS</a>
+        </container>
+      </section>
+      <section class="nav__section user color--tab">
+        <div class="nav__section__div user--info">
+          <!-- <container class="current--customer"></container> -->
+            <p class="current--customer--title">Current Customer:</p> 
+            <p class="current--customer--name">No Customer Selected</p>
+          </container></container>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="customer">
+        <input class="customer--search__input" type="text" placeholder="SEARCH GUESTS">
+        <input class="customer--create__buttton" type="button" value=" + ADD CUSTOMER">
+      </section>
+      <div class="customer--search--create--box">
+        <div class="customer--search--create">
+          <div class="customer--search--results">
+          </div>
+        </div>
+          <div class="customer--create">
+          </div>
+      </div>
+      <div class="tabs-stage">
+        <div id="dashboard">
+          <h2 class="title--heading">DASHBOARD</h2>
+          <container class="dashboard--container">
+            <p class="dashboard__text">Total Rooms Available for Today:</p> 
+            <p class="dashboard__text--roomsavil"></p>
+          </container>
+          <container class="dashboard--container">
+           <p class="dashboard__text">Percentage of Rooms Booked for Today: </p>
+           <p class="dashboard__text--percentbooked"><span>%</span></p>
+          </container>
+          <container class="dashboard--container">
+            <p class="dashboard__text">Total Revenue for Today:</p>
+            <p class="dashboard__text--totalrevenue"></p>
+          </container>
+        </div>
+        <div id="customer">
+          <h2 class="title--heading">CUSTOMER</h2>
+          <p>Current Customer: </p>
+          <p class="current--customer--name name">No Customer Selected</p>
+        </div>
+        <div id="orders">
+          <h2 class="title--heading">ORDERS</h2>
+          <container class="orders--container">
+           <p class="orders__text">Total Orders for Today: </p>
+           <p class="orders__text--allRoomService"></p>
+          </container>
+          <p class="orders__text--noinput customer--title--orders">Current Customer: </p>
+          <container class="orders--container">
+           <p class="current--customer--name">No Customer Selected</p>
+          </container>
+          <container class="orders--container">
+           <p class="orders__text--noinput">Total Spent: </p>
+           <p class="current--customer--total--spent">N/A</p>
+          </container>
+          <container class="orders--container">
+            <p class="orders__text--noinput">Past Orders:</p>
+            <p class="current--customer--past--orders">N/A</p>
+          </container>
+          <container class="orders--container">
+            <container class="current--customer--orders"></container>
+            <container class="orders--tool"></container>
+            <!-- <container class="orders--options"></container> -->
+          </container>
+        </div>
+        <div id="bookings">
+          <h2 class="title--heading">BOOKINGS</h2>
+          <continer class="bookings--main--split">
+            <container class="bookings--split--container">
+              <container class="bookings--container">
+                <p class="bookings__text popular--booking">Most popular booking date(s): </p>
+                <p class="bookings__text--mostpop"></p>
+              </container>
+              <container class="bookings--container">
+                <p class="bookings__text">Date(s) with least amount of bookings: </p>
+                <p class="bookings__text--leastpop"></p>
+              </container>
+            </container>
+            <container class="bookings--split--container">
+              <container class="bookings--tool"></container>
+              <container class="room--options"></container>
+              <container class="current--customer--bookings">
+                <p class="bookings__text--current--bookings">Current Customer's Bookings:</p>
+              </container>
+            </container>
+          </continer>
+        </div>
+      </div>
+    </main>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
