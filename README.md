@@ -26,9 +26,7 @@
   
 ### Actual:
 
-  <img src="images/check-yo-self-desktop1.png" alt="Check Yoself Desktop">
-  <img src="images/check-yo-self-desktop2.png" alt="Check Yoself Desktop">
-  <img src="images/check-yo-self-mobile-iPhone-5_SE.png" alt="Check Yoself Mobile">
+  <img src="./src/images/JeffQuestBackgroundProgression.jpg" alt="GIF app run throuugh">
 
 ## Features
 
